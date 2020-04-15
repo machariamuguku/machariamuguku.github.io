@@ -55,7 +55,8 @@ const Header = ({ siteTitle }) => {
           >
             <button
               type="button"
-              className={styles.NavButton}
+              className={`${styles.NavButton}  ${showNav &&
+                styles.navActive}`}
               onClick={e => setShowNav(prevState => !prevState)}
             >
               <span className={styles.NavTogglerSpan}></span>
