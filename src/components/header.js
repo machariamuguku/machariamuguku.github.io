@@ -58,7 +58,7 @@ const Header = ({ siteTitle }) => {
               className={styles.NavButton}
               onClick={e => setShowNav(prevState => !prevState)}
             >
-              <span className={styles.NavToggler}>Toggle navigation</span>
+              <span className={styles.NavTogglerSpan}></span>
               <span className={styles.NavTogglerSpan}></span>
               <span className={styles.NavTogglerSpan}></span>
               <span className={styles.NavTogglerSpan}></span>
