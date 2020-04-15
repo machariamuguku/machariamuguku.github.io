@@ -49,15 +49,17 @@
   transition: transform 0.3s, opacity 0.2s;
 }
 .headerLink:before {
+  font-size: 1.4rem;
   content: "[";
-  margin-right: 0.188rem;
+  margin-right: 0.2rem;
   -webkit-transform: translate(1.25rem);
   -moz-transform: translate(1.25rem);
   transform: translate(1.25rem);
 }
 .headerLink:after {
+  font-size: 1.4rem;
   content: "]";
-  margin-left: 0.188rem;
+  margin-left: 0.2rem;
   -webkit-transform: translate(-1.25rem);
   -moz-transform: translate(-1.25rem);
   transform: translate(-1.25rem);
@@ -101,28 +103,6 @@
   -webkit-appearance: button;
   border-color: #ddd;
   z-index: 100;
-}
-.NavToggler {
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  color: inherit;
-  font: inherit;
-  cursor: pointer;
-  font-family: inherit;
-  font-size: 100%;
-  line-height: 1.15;
-  text-transform: none;
-  box-sizing: border-box;
-  outline: none;
-  list-style: none;
-  word-wrap: break-word;
-  position: absolute;
-  width: 0.063rem;
-  height: 0.063rem;
-  margin: -0.063rem;
-  padding: 0;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  border: 0;
 }
 .NavTogglerSpan {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
