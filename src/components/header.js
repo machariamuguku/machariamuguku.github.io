@@ -1,35 +1,115 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
-import React from "react"
+import React, { useState } from "react"
+import styles from "./header.module.css"
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
+// single page link
+export const PageLink = ({
+  theComponent = "",
+  activeLink = "",
+  switchTabs = () => {},
+}) => (
+  <div className={styles.column}>
+    <Link
+      to={`#${theComponent}`}
+      className={`${styles.headerLink} ${activeLink === theComponent &&
+        styles.activeHeaderLink}`}
+      onClick={() => {
+        switchTabs(theComponent)
       }}
     >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </header>
+      {theComponent}
+    </Link>
+  </div>
 )
+
+// header component
+const Header = ({ siteTitle }) => {
+  const [showNav, setShowNav] = useState(false)
+  const [activeLink, setActiveLink] = useState("Home")
+
+  // switch active tabs
+  const switchTabs = TabName => setActiveLink(TabName)
+
+  return (
+    <header className={styles.row} data-testid="header-component">
+      <div className={`${styles.column} ${styles.marginTop}`}>
+        <div className={styles.NavColumn}>
+          {/* logo */}
+          <div className={styles.NavColumn}>
+            <div>
+              <Link
+                to="/"
+                className={styles.headerLogoLink}
+                onClick={() => {
+                  switchTabs("Home")
+                }}
+              >
+                {siteTitle}
+              </Link>
+            </div>
+          </div>
+          {/* mobile toggle button */}
+          <div
+            className={`${styles.NavColumn} ${styles.flexEnd} ${styles.mobileNav}`}
+          >
+            <button
+              type="button"
+              className={styles.NavButton}
+              onClick={e => setShowNav(prevState => !prevState)}
+            >
+              <span className={styles.NavToggler}>Toggle navigation</span>
+              <span className={styles.NavTogglerSpan}></span>
+              <span className={styles.NavTogglerSpan}></span>
+              <span className={styles.NavTogglerSpan}></span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* page links */}
+      <div
+        className={`${styles.column} ${styles.marginTop} ${styles.mobileNavBackground} `}
+      >
+        <div
+          className={`${styles.NavRow} ${
+            showNav ? styles.showOnMobile : styles.hideOnMobile
+          }`}
+        >
+          <PageLink
+            theComponent={"Home"}
+            activeLink={activeLink}
+            switchTabs={switchTabs}
+          />
+
+          <PageLink
+            theComponent={"About"}
+            activeLink={activeLink}
+            switchTabs={switchTabs}
+          />
+
+          <PageLink
+            theComponent={"Projects"}
+            activeLink={activeLink}
+            switchTabs={switchTabs}
+          />
+
+          <PageLink
+            theComponent={"Articles"}
+            activeLink={activeLink}
+            switchTabs={switchTabs}
+          />
+
+          <PageLink
+            theComponent={"Contact"}
+            activeLink={activeLink}
+            switchTabs={switchTabs}
+          />
+        </div>
+      </div>
+    </header>
+  )
+}
 
 Header.propTypes = {
   siteTitle: PropTypes.string,
