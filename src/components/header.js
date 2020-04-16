@@ -9,9 +9,10 @@ export const PageLink = ({
   activeLink = "",
   switchTabs = () => {},
 }) => (
+  // set role, tabIndex and onKeyDown to satisfy eslint rules
   <div className={styles.column}>
-    <Link
-      to={`#${theComponent}`}
+    <a
+      href={`#${theComponent}`}
       className={`${styles.headerLink} ${activeLink === theComponent &&
         styles.activeHeaderLink}`}
       onClick={() => {
@@ -19,7 +20,7 @@ export const PageLink = ({
       }}
     >
       {theComponent}
-    </Link>
+    </a>
   </div>
 )
 
@@ -28,8 +29,11 @@ const Header = ({ siteTitle }) => {
   const [showNav, setShowNav] = useState(false)
   const [activeLink, setActiveLink] = useState("Home")
 
-  // switch active tabs
-  const switchTabs = TabName => setActiveLink(TabName)
+  // switch active tabs and toggle the menu off
+  const switchTabs = TabName => {
+    setActiveLink(TabName)
+    setShowNav(false)
+  }
 
   return (
     <header className={styles.row} data-testid="header-component">
@@ -55,8 +59,7 @@ const Header = ({ siteTitle }) => {
           >
             <button
               type="button"
-              className={`${styles.NavButton}  ${showNav &&
-                styles.navActive}`}
+              className={`${styles.NavButton} ${showNav && styles.navActive}`}
               onClick={e => setShowNav(prevState => !prevState)}
             >
               <span className={styles.NavTogglerSpan}></span>
@@ -70,7 +73,7 @@ const Header = ({ siteTitle }) => {
 
       {/* page links */}
       <div
-        className={`${styles.column} ${styles.marginTop} ${styles.mobileNavBackground} `}
+        className={`${styles.column} ${styles.marginTop} ${styles.mobileNavBackground}`}
       >
         <div
           className={`${styles.NavRow} ${
