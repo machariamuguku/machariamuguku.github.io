@@ -16,3 +16,12 @@
 .footerLinkColor {
   color: white;
 }
+
+/* Tablets and anything smaller */
+@media screen and (max-width: 48rem) {
+  .footer {
+    height: 5rem;
+    font-size: 15pt;
+    padding-top: 1.5rem;
+  }
+}
