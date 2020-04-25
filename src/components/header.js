@@ -9,7 +9,6 @@ export const PageLink = ({
   activeLink = "",
   switchTabs = () => {},
 }) => (
-  // set role, tabIndex and onKeyDown to satisfy eslint rules
   <div className={styles.column}>
     <a
       href={`#${theComponent}`}
@@ -36,7 +35,7 @@ const Header = ({ siteTitle }) => {
   }
 
   return (
-    <header className={styles.row} data-testid="header-component">
+    <header className={styles.row}>
       <div className={`${styles.column} ${styles.marginTop}`}>
         <div className={styles.NavColumn}>
           {/* logo */}
