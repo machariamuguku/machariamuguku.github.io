@@ -19,6 +19,7 @@ const Layout = ({ children }) => {
       site {
         siteMetadata {
           title
+          owner
         }
       }
     }
@@ -35,8 +36,8 @@ const Layout = ({ children }) => {
         }}
       >
         <main>{children}</main>
-        <Footer />
       </div>
+      <Footer siteOwner={data.site.siteMetadata.owner} />
     </>
   )
 }
