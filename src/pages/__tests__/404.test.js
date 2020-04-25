@@ -1,25 +1,24 @@
 import React from "react"
 import { render } from "@testing-library/react"
 import { useStaticQuery } from "gatsby" // mocked
-
 import FourOhFour from "../404"
 
 describe("<FourOhFour />", () => {
-  // mock useStaticQuery
   beforeEach(() => {
+    // mock useStaticQuery implementation
     useStaticQuery.mockImplementation(() => ({
       site: {
         siteMetadata: {
-          author: "Muguku",
           description: "My description",
-          title: "Muguku",
+          title: "Test Owner's Title",
+          owner: "The Test Owner",
         },
       },
     }))
   })
 
-  it("should render <FourOhFour />", () => {
-    const { queryByTestId } = render(<FourOhFour />)
-    expect(queryByTestId("404-component")).toBeInTheDocument()
+  it("renders <FourOhFour />", () => {
+    const { getByText } = render(<FourOhFour />)
+    expect(getByText(/NOT FOUND/i)).toBeInTheDocument()
   })
 })
