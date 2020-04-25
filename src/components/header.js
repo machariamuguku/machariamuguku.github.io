@@ -1,13 +1,13 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
-import React, { useState } from "react"
-import styles from "./header.module.css"
+import { Link } from "gatsby";
+import PropTypes from "prop-types";
+import React, { useState } from "react";
+import styles from "./header.module.css";
 
 // single page link
 export const PageLink = ({
   theComponent = "",
   activeLink = "",
-  switchTabs = () => {},
+  switchTabs = () => {}
 }) => (
   <div className={styles.column}>
     <a
@@ -15,24 +15,24 @@ export const PageLink = ({
       className={`${styles.headerLink} ${activeLink === theComponent &&
         styles.activeHeaderLink}`}
       onClick={() => {
-        switchTabs(theComponent)
+        switchTabs(theComponent);
       }}
     >
       {theComponent}
     </a>
   </div>
-)
+);
 
 // header component
 const Header = ({ siteTitle }) => {
-  const [showNav, setShowNav] = useState(false)
-  const [activeLink, setActiveLink] = useState("Home")
+  const [showNav, setShowNav] = useState(false);
+  const [activeLink, setActiveLink] = useState("Home");
 
   // switch active tabs and toggle the menu off
-  const switchTabs = TabName => {
-    setActiveLink(TabName)
-    setShowNav(false)
-  }
+  const switchTabs = (TabName) => {
+    setActiveLink(TabName);
+    setShowNav(false);
+  };
 
   return (
     <header className={styles.row}>
@@ -45,7 +45,7 @@ const Header = ({ siteTitle }) => {
                 to="/"
                 className={styles.headerLogoLink}
                 onClick={() => {
-                  switchTabs("Home")
+                  switchTabs("Home");
                 }}
               >
                 {siteTitle}
@@ -59,7 +59,7 @@ const Header = ({ siteTitle }) => {
             <button
               type="button"
               className={`${styles.NavButton} ${showNav && styles.navActive}`}
-              onClick={e => setShowNav(prevState => !prevState)}
+              onClick={(e) => setShowNav((prevState) => !prevState)}
             >
               <span className={styles.NavTogglerSpan}></span>
               <span className={styles.NavTogglerSpan}></span>
@@ -111,15 +111,15 @@ const Header = ({ siteTitle }) => {
         </div>
       </div>
     </header>
-  )
-}
+  );
+};
 
 Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
+  siteTitle: PropTypes.string
+};
 
 Header.defaultProps = {
-  siteTitle: ``,
-}
+  siteTitle: ``
+};
 
-export default Header
+export default Header;

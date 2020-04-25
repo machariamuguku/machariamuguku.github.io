@@ -1,8 +1,8 @@
-import React from "react"
-import { render, waitFor } from "@testing-library/react"
+import React from "react";
+import { render, waitFor } from "@testing-library/react";
 // already mocked in __mocks__
-import { useStaticQuery } from "gatsby"
-import Index from "../index"
+import { useStaticQuery } from "gatsby";
+import Index from "../index";
 
 describe("<Index />", () => {
   beforeEach(() => {
@@ -12,11 +12,11 @@ describe("<Index />", () => {
         siteMetadata: {
           description: "My description",
           title: "Test Owner's Title",
-          owner: "The Test Owner",
-        },
-      },
-    }))
-  })
+          owner: "The Test Owner"
+        }
+      }
+    }));
+  });
 
   // Todo: do integration tests here.
   // if when you click on buttons things are mounted and unmounted.
@@ -28,30 +28,30 @@ describe("<Index />", () => {
   // simulate all nav button clicks (about,contact,projects...)
 
   it("renders <Header />", () => {
-    const { getByText } = render(<Index />)
-    expect(getByText(/Test Owner's Title/i)).toBeInTheDocument()
-  })
+    const { getByText } = render(<Index />);
+    expect(getByText(/Test Owner's Title/i)).toBeInTheDocument();
+  });
 
   it("renders <HomeAboutContact />", () => {
-    const { getByText } = render(<Index />)
-    expect(getByText(/Hi there!/i)).toBeInTheDocument()
-    waitFor(() => expect(getByText(/I'm The Test Owner/i)).toBeInTheDocument())
-  })
+    const { getByText } = render(<Index />);
+    expect(getByText(/Hi there!/i)).toBeInTheDocument();
+    waitFor(() => expect(getByText(/I'm The Test Owner/i)).toBeInTheDocument());
+  });
 
   it("renders <Projects />", () => {
-    const { getByText } = render(<Index />)
-    expect(getByText(/Popular Projects/i)).toBeInTheDocument()
-  })
+    const { getByText } = render(<Index />);
+    expect(getByText(/Popular Projects/i)).toBeInTheDocument();
+  });
 
   it("renders <Articles />", () => {
-    const { getByText } = render(<Index />)
-    expect(getByText(/Popular Articles/i)).toBeInTheDocument()
-  })
+    const { getByText } = render(<Index />);
+    expect(getByText(/Popular Articles/i)).toBeInTheDocument();
+  });
 
   it("renders <Footer />", () => {
-    const { getByText } = render(<Index />)
+    const { getByText } = render(<Index />);
     expect(
       getByText(/All rights reserved, The Test Owner,/i)
-    ).toBeInTheDocument()
-  })
-})
+    ).toBeInTheDocument();
+  });
+});
