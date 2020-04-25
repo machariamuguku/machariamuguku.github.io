@@ -50,8 +50,6 @@ describe("<Index />", () => {
 
   it("renders <Footer />", () => {
     const { getByText } = render(<Index />);
-    expect(
-      getByText(/All rights reserved, The Test Owner,/i)
-    ).toBeInTheDocument();
+    expect(getByText(/© 2020 The Test Owner./i)).toBeInTheDocument();
   });
 });

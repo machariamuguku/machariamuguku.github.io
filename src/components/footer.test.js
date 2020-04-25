@@ -4,10 +4,8 @@ import Footer from "./footer";
 
 describe("<Footer />", () => {
   let siteOwner = "The Test SiteOwner";
-  it("renders <Footer />", () => {
+  it("renders <Footer /> Content", () => {
     const { getByText } = render(<Footer siteOwner={siteOwner} />);
-    expect(
-      getByText(/All rights reserved, The Test SiteOwner,/i)
-    ).toBeInTheDocument();
+    expect(getByText(/© 2020 The Test SiteOwner./i)).toBeInTheDocument();
   });
 });
