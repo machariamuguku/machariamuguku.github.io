@@ -1,7 +1,7 @@
-import React from "react"
-import { render } from "@testing-library/react"
-import { useStaticQuery } from "gatsby" // mocked
-import FourOhFour from "../404"
+import React from "react";
+import { render } from "@testing-library/react";
+import { useStaticQuery } from "gatsby"; // mocked
+import FourOhFour from "../404";
 
 describe("<FourOhFour />", () => {
   beforeEach(() => {
@@ -11,14 +11,14 @@ describe("<FourOhFour />", () => {
         siteMetadata: {
           description: "My description",
           title: "Test Owner's Title",
-          owner: "The Test Owner",
-        },
-      },
-    }))
-  })
+          owner: "The Test Owner"
+        }
+      }
+    }));
+  });
 
   it("renders <FourOhFour />", () => {
-    const { getByText } = render(<FourOhFour />)
-    expect(getByText(/NOT FOUND/i)).toBeInTheDocument()
-  })
-})
+    const { getByText } = render(<FourOhFour />);
+    expect(getByText(/NOT FOUND/i)).toBeInTheDocument();
+  });
+});

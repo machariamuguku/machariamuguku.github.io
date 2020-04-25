@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 
 export default function Footer({ siteOwner }) {
   return (
@@ -6,5 +6,5 @@ export default function Footer({ siteOwner }) {
       All rights reserved, {siteOwner}, © {new Date().getFullYear()}, Built with
       <a href="https://www.gatsbyjs.org">Gatsby</a>
     </footer>
-  )
+  );
 }
