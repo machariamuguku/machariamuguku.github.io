@@ -1,11 +1,18 @@
 import React from "react";
+
+// context provider
+import { MenuContextProvider } from "../components/menuContext";
+
+// components
 import Layout from "../components/layout";
-import { IntroAndSocialLinkLayout } from "../components/introAndSocialLinkLayout";
+import { LandingPageLayout } from "../components/landingPageLayout";
 
 const IndexPage = () => (
-  <Layout>
-    <IntroAndSocialLinkLayout />
-  </Layout>
+  <MenuContextProvider>
+    <Layout>
+      <LandingPageLayout />
+    </Layout>
+  </MenuContextProvider>
 );
 
 export default IndexPage;
