@@ -1,0 +1,11 @@
+.caret {
+  font-size: 4rem;
+  cursor: pointer;
+}
+
+/* Tablets and anything smaller */
+@media screen and (max-width: 48rem) {
+  .caret {
+    font-size: 3rem;
+  }
+}
