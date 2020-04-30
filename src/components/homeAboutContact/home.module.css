@@ -46,6 +46,9 @@
   font-size: 12pt;
   font-weight: bolder;
 }
+.container a {
+  color: white;
+}
 /* Tablets and anything smaller */
 @media screen and (max-width: 48rem) {
   .container > .introduction:first-child {
