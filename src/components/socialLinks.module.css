@@ -1,0 +1,28 @@
+.container {
+  margin-top: 5rem;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  color: white;
+}
+.item {
+  flex: 0 0 auto;
+  margin-bottom: 3rem;
+}
+.linkColor {
+  color: white;
+}
+/* Tablets and anything smaller */
+@media screen and (max-width: 48rem) {
+  .container {
+    flex-direction: row;
+  }
+  .item {
+    flex: 0 0 auto;
+    margin-bottom: 0;
+    margin-right: 3rem;
+  }
+}
