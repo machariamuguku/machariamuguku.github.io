@@ -1,0 +1,9 @@
+.container {
+  margin-top: 6rem;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
