@@ -1,0 +1,69 @@
+.container {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+.verticalContainer {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.item {
+  flex: 0 0 auto;
+}
+.bracketLeft {
+  margin-right: 1rem;
+}
+.bracketRight {
+  margin-left: 1rem;
+}
+.brackets {
+  font-size: 7rem;
+}
+.salutation {
+  font-size: 20pt;
+  font-weight: bold;
+}
+.introduction {
+  flex: 0 0 auto;
+}
+.container .introduction {
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+.container > .introduction:first-child {
+  font-size: 20pt;
+  font-weight: bold;
+  margin-right: 0.4rem;
+}
+.container > .introduction:nth-child(2) {
+  font-size: 17pt;
+  font-weight: lighter;
+  font-style: italic;
+}
+.summary {
+  font-size: 12pt;
+  font-weight: bolder;
+}
+/* Tablets and anything smaller */
+@media screen and (max-width: 48rem) {
+  .container > .introduction:first-child {
+    font-size: 17pt;
+  }
+  .container > .introduction:nth-child(2) {
+    font-size: 14pt;
+  }
+  .bracketLeft {
+    margin-right: 0.5rem;
+  }
+  .bracketRight {
+    margin-left: 0.5rem;
+  }
+  .brackets {
+    font-size: 7rem;
+  }
+  .summary {
+    font-size: 10pt;
+  }
+}
