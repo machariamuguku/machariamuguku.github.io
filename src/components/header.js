@@ -1,18 +1,21 @@
+import React, { useState, useContext } from "react";
 import { Link } from "gatsby";
 import PropTypes from "prop-types";
-import React, { useState } from "react";
 import styles from "./header.module.css";
+
+// context provider
+import { MenuContext } from "./menuContext";
 
 // single page link
 export const PageLink = ({
   theComponent = "",
-  activeLink = "",
+  activeMenu = "",
   switchTabs = () => {}
 }) => (
   <div className={styles.column}>
     <a
       href={`#${theComponent}`}
-      className={`${styles.headerLink} ${activeLink === theComponent &&
+      className={`${styles.headerLink} ${activeMenu === theComponent &&
         styles.activeHeaderLink}`}
       onClick={() => {
         switchTabs(theComponent);
@@ -25,12 +28,12 @@ export const PageLink = ({
 
 // header component
 const Header = ({ siteTitle }) => {
+  const { activeMenu, setActiveMenu } = useContext(MenuContext);
   const [showNav, setShowNav] = useState(false);
-  const [activeLink, setActiveLink] = useState("Home");
 
   // switch active tabs and toggle the menu off
   const switchTabs = (TabName) => {
-    setActiveLink(TabName);
+    setActiveMenu(TabName);
     setShowNav(false);
   };
 
@@ -81,31 +84,31 @@ const Header = ({ siteTitle }) => {
         >
           <PageLink
             theComponent={"Home"}
-            activeLink={activeLink}
+            activeMenu={activeMenu}
             switchTabs={switchTabs}
           />
 
           <PageLink
             theComponent={"About"}
-            activeLink={activeLink}
+            activeMenu={activeMenu}
             switchTabs={switchTabs}
           />
 
           <PageLink
             theComponent={"Projects"}
-            activeLink={activeLink}
+            activeMenu={activeMenu}
             switchTabs={switchTabs}
           />
 
           <PageLink
             theComponent={"Articles"}
-            activeLink={activeLink}
+            activeMenu={activeMenu}
             switchTabs={switchTabs}
           />
 
           <PageLink
             theComponent={"Contact"}
-            activeLink={activeLink}
+            activeMenu={activeMenu}
             switchTabs={switchTabs}
           />
         </div>
