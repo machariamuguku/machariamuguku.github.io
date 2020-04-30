@@ -1,11 +1,10 @@
 import React from "react";
-
 import Layout from "../components/layout";
-import SEO from "../components/seo";
+import { IntroAndSocialLinkLayout } from "../components/introAndSocialLinkLayout";
 
 const IndexPage = () => (
   <Layout>
-    <SEO title="Home" />
+    <IntroAndSocialLinkLayout />
   </Layout>
 );
 
