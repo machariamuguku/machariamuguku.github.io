@@ -7,3 +7,9 @@
   align-items: center;
   color: white;
 }
+/* Tablets and anything smaller */
+@media screen and (max-width: 48rem) {
+  .container {
+    margin-top: 2rem;
+  }
+}
