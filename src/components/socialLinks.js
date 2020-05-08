@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./socialLinks.module.css";
 // react font awesome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -9,9 +9,30 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
 
-export default function socialLinks() {
+// react tooltip
+import ReactTooltip from "react-tooltip";
+// copy to clipboard
+import { CopyToClipboard } from "react-copy-to-clipboard";
+
+export function SocialLinks() {
+  const [copiedToClipBoard, setCopiedToClipBoard] = useState(false);
+
   return (
     <div className={styles.container}>
+      {/* the universal react tooltip. Style tooltip here */}
+      <ReactTooltip
+        place="bottom"
+        type="light"
+        textColor="black"
+        backgroundColor={"white"}
+        className={styles.tooltip}
+        id="socialToolTip"
+        getContent={() =>
+          copiedToClipBoard
+            ? "Yay! My email address has been copied to your clipboard✅"
+            : "Click here to copy my email address to your clipboard 😀"
+        }
+      />
       <div className={styles.item}>
         <a
           className={styles.linkColor}
@@ -43,14 +64,26 @@ export default function socialLinks() {
         </a>
       </div>
       <div className={styles.item}>
-        <a
-          className={styles.linkColor}
-          href="mailto:hello@muguku.co.ke"
-          target="_blank"
-          rel="noopener noreferrer"
+        <CopyToClipboard
+          text="hello@muguku.co.ke"
+          // change tooltip text if copy successful
+          onCopy={(result) => setCopiedToClipBoard(result)}
         >
-          <FontAwesomeIcon icon={faEnvelope} size="lg" />
-        </a>
+          <div
+            className={styles.linkContainer}
+            data-for="socialToolTip"
+            data-tip
+            onMouseLeave={() => {
+              setCopiedToClipBoard(false);
+            }}
+            role="button"
+            tabIndex="0"
+          >
+            <div className={`${styles.item} ${styles.pointer}`}>
+              <FontAwesomeIcon icon={faEnvelope} size="lg" />
+            </div>
+          </div>
+        </CopyToClipboard>
       </div>
     </div>
   );
