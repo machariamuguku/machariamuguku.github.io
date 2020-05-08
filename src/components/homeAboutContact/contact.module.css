@@ -1,0 +1,76 @@
+.container {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+.verticalContainer {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 18rem;
+}
+.linkHeader {
+  margin-bottom: 0.6rem;
+  font-size: 14pt;
+  font-weight: bolder;
+}
+.linkSize {
+  font-size: 12pt;
+}
+.linkContainer {
+  display: flex;
+  flex-wrap: nowrap;
+  margin-bottom: 0.4rem;
+}
+.verticalContainer p {
+  font-size: 13pt;
+  font-weight: 400;
+}
+.item {
+  flex: 0 0 auto;
+}
+.bracketLeft {
+  margin-right: 1rem;
+}
+.bracketRight {
+  margin-left: 1rem;
+}
+.brackets {
+  font-size: 8rem;
+}
+.container a {
+  color: white;
+  text-decoration: none;
+}
+.someMargin {
+  margin-left: 0.5rem;
+}
+.tooltip {
+  font-size: 10pt;
+  max-width: 12rem;
+}
+.pointer {
+  cursor: pointer;
+}
+/* Tablets and anything smaller */
+@media screen and (max-width: 48rem) {
+  .bracketLeft {
+    margin-right: 0.5rem;
+  }
+  .bracketRight {
+    margin-left: 0.5rem;
+  }
+  .brackets {
+    font-size: 7rem;
+  }
+  .verticalContainer {
+    width: 15rem;
+  }
+  .verticalContainer p {
+    font-size: 10pt;
+  }
+  .someMargin {
+    margin-left: 0.4rem;
+  }
+}
