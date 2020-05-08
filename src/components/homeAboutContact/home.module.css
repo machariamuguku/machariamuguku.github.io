@@ -8,6 +8,7 @@
   display: flex;
   flex-direction: column;
   text-align: center;
+  width: 18rem;
 }
 .item {
   flex: 0 0 auto;
@@ -19,7 +20,7 @@
   margin-left: 1rem;
 }
 .brackets {
-  font-size: 7rem;
+  font-size: 8rem;
 }
 .salutation {
   font-size: 20pt;
@@ -42,8 +43,29 @@
   font-weight: lighter;
   font-style: italic;
 }
+.container > .introduction:nth-child(3) {
+  font-size: 17pt;
+  font-weight: lighter;
+  -webkit-animation: blink 1s step-end infinite;
+  -moz-animation: blink 1s step-end infinite;
+  -ms-animation: blink 1s step-end infinite;
+  -o-animation: blink 1s step-end infinite;
+  animation: blink 1s step-end infinite;
+}
+@keyframes blink {
+  from,
+  to {
+    color: transparent;
+  }
+  50% {
+    color: white;
+  }
+}
+.dot {
+  font-size: 18pt;
+}
 .summary {
-  font-size: 12pt;
+  font-size: 10pt;
   font-weight: bolder;
 }
 .container a {
@@ -51,6 +73,9 @@
 }
 /* Tablets and anything smaller */
 @media screen and (max-width: 48rem) {
+  .salutation {
+    font-size: 18pt;
+  }
   .container > .introduction:first-child {
     font-size: 17pt;
   }
@@ -67,6 +92,10 @@
     font-size: 7rem;
   }
   .summary {
-    font-size: 10pt;
+    font-size: 8pt;
+    margin: 0;
+  }
+  .verticalContainer {
+    width: 15rem;
   }
 }
