@@ -2,6 +2,8 @@ import React, { useContext } from "react";
 
 // context provider
 import { MenuContext } from "../menuContext";
+// custom typeWriter hook
+import { useTypeWriter } from "./useTypeWriter";
 
 // components
 import SEO from "../seo";
@@ -9,12 +11,21 @@ import { LeftCaret, RightCaret } from "./carets";
 
 // stylesheet
 import styles from "./home.module.css";
-// Todo: fn to type/delete I'm ....
 
 const navigationItems = ["Home", "About", "Contact"];
 
+const introductions = [
+  "Macharia Muguku",
+  "A Software Engineer",
+  "A Full-Stack Developer",
+  "A Minimalist"
+];
+
+const introductionSummary = ["ENGINEER", "DEVELOPER", "MINIMALIST"];
+
 export default function Home() {
   const { activeMenu, setActiveMenu } = useContext(MenuContext);
+  const { introduction } = useTypeWriter(introductions);
 
   const changeMenu = (direction) => {
     const indexOfCurrentItem = navigationItems.indexOf(activeMenu);
@@ -67,25 +78,26 @@ export default function Home() {
 
       <div className={styles.item}>
         <div className={styles.verticalContainer}>
-          <span className={styles.salutation}>Hi There!</span>
+          <span className={styles.salutation}>Hello!</span>
           <div className={styles.container}>
             <span className={styles.introduction}>I'm</span>
-            <span className={styles.introduction}>
-              {/* Macharia Muguku */}
-              {/* A Software Engineer */}A FullStack Developer
-              {/* A Minimalist */}
-            </span>
+            <span className={styles.introduction}>{introduction}</span>
+            <span className={styles.introduction}>|</span>
           </div>
         </div>
-        {/* here */}
         <div className={styles.container}>
           <div className={styles.summary}>
-            <span>ENGINEER. </span>
-            <span>DEVELOPER. </span>
-            <span>MINIMALIST</span>
+            {introductionSummary.map((item, index, theArray) => (
+              <React.Fragment key={index}>
+                <span>{item}</span>
+                {/* add a dot between items but for the last item */}
+                {index <= theArray.length - 2 && (
+                  <span className={styles.dot}> . </span>
+                )}
+              </React.Fragment>
+            ))}
           </div>
         </div>
-        {/* here */}
       </div>
 
       {/* right bracket */}
