@@ -104,7 +104,7 @@ export function Contact() {
             onCopy={(result) => setCopiedToClipBoard(result)}
           >
             <div
-              className={styles.linkContainer}
+              className={`${styles.linkContainer} ${styles.noLinkOutline} ${styles.pointer}`}
               data-for="getContent"
               data-tip
               onMouseLeave={() => {
@@ -113,13 +113,11 @@ export function Contact() {
               role="button"
               tabIndex="0"
             >
-              <div className={`${styles.item} ${styles.pointer}`}>
+              <div className={styles.item}>
                 <FontAwesomeIcon icon={faEnvelope} size="lg" />
               </div>
               <div className={`${styles.item} ${styles.someMargin}`}>
-                <span className={`${styles.linkSize} ${styles.pointer}`}>
-                  hello@muguku.co.ke
-                </span>
+                <span className={styles.linkSize}>hello@muguku.co.ke</span>
               </div>
             </div>
           </CopyToClipboard>

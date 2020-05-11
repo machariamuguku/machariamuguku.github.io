@@ -70,7 +70,7 @@ export function SocialLinks() {
           onCopy={(result) => setCopiedToClipBoard(result)}
         >
           <div
-            className={styles.linkContainer}
+            className={`${styles.linkContainer} ${styles.noLinkOutline} ${styles.pointer}`}
             data-for="socialToolTip"
             data-tip
             onMouseLeave={() => {
@@ -79,7 +79,7 @@ export function SocialLinks() {
             role="button"
             tabIndex="0"
           >
-            <div className={`${styles.item} ${styles.pointer}`}>
+            <div className={styles.item}>
               <FontAwesomeIcon icon={faEnvelope} size="lg" />
             </div>
           </div>

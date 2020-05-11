@@ -18,7 +18,7 @@ export const LandingPageLayout = () => {
         </div>
       </div>
       <div
-        className={styles.caretDown}
+        className={`${styles.caretDown} ${styles.noLinkOutline}`}
         onClick={() => {
           console.log("go down implementation here");
         }}
