@@ -1,17 +1,57 @@
 .container {
   display: flex;
   flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: space-evenly;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.verticalContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .socialLinks {
   position: absolute;
   right: 10rem;
+}
+.caretDown {
+  margin-top: 2rem;
+  padding: 3rem;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  -webkit-animation: blink 1400ms ease-in-out infinite;
+  -moz-animation: blink 1400ms ease-in-out infinite;
+  -ms-animation: blink 1400ms ease-in-out infinite;
+  -o-animation: blink 1400ms ease-in-out infinite;
+  animation: blink 1400ms ease-in-out infinite;
+}
+.goingDown {
+  font-size: 1.2rem;
+  transform: scaleX(1.5);
+}
+.caretDown > .goingDown:last-child {
+  margin-top: -0.3rem;
+}
+@keyframes blink {
+  from {
+    color: transparent;
+  }
+  to {
+    color: transparent;
+    padding-top: 5rem;
+  }
+  50% {
+    color: white;
+  }
 }
 /* Tablets and anything smaller */
 @media screen and (max-width: 48rem) {
   .socialLinks {
     position: relative;
     right: auto;
+  }
+  .goingDown {
+    font-size: 1.4rem;
   }
 }
