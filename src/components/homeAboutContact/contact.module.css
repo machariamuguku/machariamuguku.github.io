@@ -16,11 +16,12 @@
   font-weight: bolder;
 }
 .linkSize {
-  font-size: 12pt;
+  font-size: 13pt;
 }
 .linkContainer {
   display: flex;
   flex-wrap: nowrap;
+  align-items: center;
   margin-bottom: 0.4rem;
 }
 .verticalContainer p {
@@ -75,5 +76,11 @@
   }
   .someMargin {
     margin-left: 0.4rem;
+  }
+  .linkHeader {
+    font-size: 12pt;
+  }
+  .linkSize {
+    font-size: 11pt;
   }
 }
