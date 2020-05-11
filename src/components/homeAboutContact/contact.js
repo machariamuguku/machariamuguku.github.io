@@ -140,7 +140,7 @@ export function Contact() {
                 rel="noopener noreferrer"
               >
                 <span className={styles.linkSize}>
-                  www.linkedin.com/in/machariamuguku
+                  linkedin.com/in/machariamuguku
                 </span>
               </a>
             </div>
