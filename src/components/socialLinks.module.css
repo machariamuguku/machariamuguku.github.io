@@ -25,6 +25,9 @@
 .pointer {
   cursor: pointer;
 }
+.noLinkOutline {
+  outline: none;
+}
 /* Tablets and anything smaller */
 @media screen and (max-width: 48rem) {
   .container {
