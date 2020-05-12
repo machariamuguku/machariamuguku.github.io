@@ -157,6 +157,7 @@
 @media screen and (max-width: 48rem) {
   .headerLogoLink {
     margin-left: 1rem;
+    font-size: 1.7rem;
   }
   .headerLink {
     margin-bottom: 1.1rem;
@@ -168,8 +169,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    /* top, right, bottom, left */
-    margin: 1rem 0rem 1rem 0rem;
+    margin: 0.2rem 0 0 0;
   }
   .row {
     flex-direction: column;
