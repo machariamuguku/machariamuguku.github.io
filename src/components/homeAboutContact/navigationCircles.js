@@ -23,7 +23,7 @@ export function NavigationCircles() {
       >
         <FontAwesomeIcon
           icon={activeMenu === "Home" ? CircleHighlighted : faCircle}
-          size="lg"
+          size="1x"
         />
       </a>
       <a
@@ -36,7 +36,7 @@ export function NavigationCircles() {
       >
         <FontAwesomeIcon
           icon={activeMenu === "About" ? CircleHighlighted : faCircle}
-          size="lg"
+          size="1x"
         />
       </a>
       <a
@@ -49,7 +49,7 @@ export function NavigationCircles() {
       >
         <FontAwesomeIcon
           icon={activeMenu === "Contact" ? CircleHighlighted : faCircle}
-          size="lg"
+          size="1x"
         />
       </a>
     </div>

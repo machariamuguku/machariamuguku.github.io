@@ -73,7 +73,7 @@ export function About() {
           <p>
             I'm a fullstack software engineer from Nairobi, Kenya. I design,
             code, and tinker with things. I speak React, Node.js, and Golang. I
-            Love to write, run and trail.
+            love to write, run and trail.
           </p>
         </div>
       </div>

@@ -31,13 +31,13 @@
 /* Tablets and anything smaller */
 @media screen and (max-width: 48rem) {
   .container {
-    margin-top: 3rem;
+    margin-top: 2rem;
     flex-direction: row;
   }
   .item {
     flex: 0 0 auto;
     margin-bottom: 0;
-    margin-right: 3rem;
+    margin-right: 2rem;
   }
   .container > .item:last-child {
     margin-right: 0;

@@ -24,7 +24,7 @@
   margin-left: 1rem;
 }
 .brackets {
-  font-size: 8rem;
+  font-size: 7rem;
 }
 .container a {
   color: white;
@@ -32,18 +32,19 @@
 /* Tablets and anything smaller */
 @media screen and (max-width: 48rem) {
   .bracketLeft {
-    margin-right: 0.5rem;
+    margin-right: 0.2rem;
   }
   .bracketRight {
-    margin-left: 0.5rem;
+    margin-left: 0.2rem;
   }
   .brackets {
-    font-size: 7rem;
+    font-size: 6rem;
   }
   .verticalContainer {
-    width: 15rem;
+    width: auto;
+    max-width: 14rem;
   }
   .verticalContainer p {
-    font-size: 13pt;
+    font-size: 11pt;
   }
 }
