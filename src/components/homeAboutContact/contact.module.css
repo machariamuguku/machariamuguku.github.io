@@ -11,7 +11,7 @@
   width: 18rem;
 }
 .linkHeader {
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.3rem;
   font-size: 14pt;
   font-weight: bolder;
 }
@@ -38,7 +38,7 @@
   margin-left: 1rem;
 }
 .brackets {
-  font-size: 8rem;
+  font-size: 7rem;
 }
 .container a {
   color: white;
@@ -63,10 +63,10 @@
     margin-right: 0.5rem;
   }
   .bracketRight {
-    margin-left: 0.5rem;
+    margin-left: 0;
   }
   .brackets {
-    font-size: 7rem;
+    font-size: 5rem;
   }
   .verticalContainer {
     width: 15rem;
@@ -78,9 +78,9 @@
     margin-left: 0.4rem;
   }
   .linkHeader {
-    font-size: 12pt;
+    font-size: 11pt;
   }
   .linkSize {
-    font-size: 11pt;
+    font-size: 10pt;
   }
 }

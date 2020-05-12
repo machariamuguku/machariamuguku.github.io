@@ -5,27 +5,23 @@ import styles from "./footer.module.css";
 export default function Footer({ siteOwner }) {
   return (
     <footer className={styles.footer}>
-      <div className={styles.footerParagraph}>
+      <div className={styles.marginBottom}>
         <span>
-          © {new Date().getFullYear()} {siteOwner}.{" "}
+          &copy;{new Date().getFullYear()} {siteOwner}.&nbsp;
         </span>
-        <span>All rights reserved. </span>
-        <span>Built with </span>
+        <span>All rights reserved.&nbsp;</span>
+      </div>
+      <span className={styles.padOnMobile}>
+        Handcrafted by Me. Built with &nbsp;
         <a
           className={styles.footerLinkColor}
           href="https://www.gatsbyjs.org"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <img
-            src={GatsbyLogo}
-            alt="gatsby logo"
-            height="70px"
-            width="70px"
-            valign="middle"
-          />
+          <img src={GatsbyLogo} alt="gatsby logo" valign="middle" />
         </a>
-      </div>
+      </span>
     </footer>
   );
 }

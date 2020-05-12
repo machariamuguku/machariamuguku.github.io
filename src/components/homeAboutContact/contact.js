@@ -94,9 +94,7 @@ export function Contact() {
       </div>
       <div className={styles.item}>
         <div className={styles.verticalContainer}>
-          <span className={styles.linkHeader}>
-            Feel free to get in touch via:
-          </span>
+          <span className={styles.linkHeader}>Get in touch via</span>
 
           <CopyToClipboard
             text="hello@muguku.co.ke"
@@ -114,7 +112,7 @@ export function Contact() {
               tabIndex="0"
             >
               <div className={styles.item}>
-                <FontAwesomeIcon icon={faEnvelope} size="lg" />
+                <FontAwesomeIcon icon={faEnvelope} size="1x" />
               </div>
               <div className={`${styles.item} ${styles.someMargin}`}>
                 <span className={styles.linkSize}>hello@muguku.co.ke</span>
@@ -129,7 +127,7 @@ export function Contact() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <FontAwesomeIcon icon={faLinkedinIn} size="lg" />{" "}
+                <FontAwesomeIcon icon={faLinkedinIn} size="1x" />
               </a>
             </div>
             <div className={`${styles.item} ${styles.someMargin}`}>
