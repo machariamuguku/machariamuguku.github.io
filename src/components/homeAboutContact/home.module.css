@@ -8,7 +8,7 @@
   display: flex;
   flex-direction: column;
   text-align: center;
-  width: 18rem;
+  width: 16rem;
 }
 .item {
   flex: 0 0 auto;
@@ -20,7 +20,7 @@
   margin-left: 1rem;
 }
 .brackets {
-  font-size: 8rem;
+  font-size: 7rem;
 }
 .salutation {
   font-size: 20pt;
@@ -31,7 +31,6 @@
 }
 .container .introduction {
   margin-top: 0.5rem;
-  margin-bottom: 1rem;
 }
 .container > .introduction:first-child {
   font-size: 20pt;
@@ -74,28 +73,28 @@
 /* Tablets and anything smaller */
 @media screen and (max-width: 48rem) {
   .salutation {
-    font-size: 18pt;
-  }
-  .container > .introduction:first-child {
-    font-size: 17pt;
-  }
-  .container > .introduction:nth-child(2) {
     font-size: 14pt;
   }
+  .container > .introduction:first-child {
+    font-size: 13pt;
+  }
+  .container > .introduction:nth-child(2) {
+    font-size: 11pt;
+  }
   .bracketLeft {
-    margin-right: 0.5rem;
+    margin-right: 0;
   }
   .bracketRight {
-    margin-left: 0.5rem;
+    margin-left: 0;
   }
   .brackets {
-    font-size: 7rem;
+    font-size: 6rem;
   }
   .summary {
     font-size: 8pt;
     margin: 0;
   }
   .verticalContainer {
-    width: 15rem;
+    width: auto;
   }
 }
