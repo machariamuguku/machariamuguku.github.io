@@ -11,10 +11,9 @@ export function useTypeWriter(Introductions) {
 
     // push letters one by one to state
     async function type(sentence) {
-      for (let i = 0; i < sentence.length; i++) {
-        // take the letter of the sentence at index i
-        let currentLetter = sentence[i];
-        // set the letter to state
+      // iterate the sentence
+      for (const currentLetter of sentence) {
+        // add the letters cumulatively to state
         setIntroduction((prevState) => prevState + currentLetter);
         // wait a few seconds before proceeding to the next letter
         await timer(120);
@@ -31,8 +30,9 @@ export function useTypeWriter(Introductions) {
       }
     }
 
-    // self invoking fn
-    (async function typeWrite() {
+    // invoke the type and unType functions in order
+    // with delays between successive runs
+    async function typeWrite() {
       // get one sentence out of the array of sentences
       for (const sentence of Introductions) {
         await timer(100);
@@ -43,7 +43,10 @@ export function useTypeWriter(Introductions) {
       }
       // recursion
       typeWrite();
-    })();
+    }
+
+    // invoke the fn
+    typeWrite();
 
     // cleanup
     return () => {
