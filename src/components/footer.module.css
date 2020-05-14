@@ -5,6 +5,7 @@
   justify-content: center;
   position: fixed;
   bottom: 0;
+  height: 70px;
   width: 100%;
   background-color: #1a1a1a;
   color: white;
@@ -14,7 +15,7 @@
   color: white;
 }
 .footerLinkColor img {
-  height: 70px;
+  height: inherit;
   width: 70px;
 }
 /* Tablets and anything smaller */
@@ -22,6 +23,7 @@
   .footer {
     flex-direction: column;
     font-size: 9pt;
+    height: 40px;
     padding-top: 1rem;
     padding-bottom: 1rem;
   }
@@ -29,7 +31,6 @@
     padding-top: 0.3rem;
   }
   .footerLinkColor img {
-    height: auto;
     width: 65px;
   }
   .marginBottom {
