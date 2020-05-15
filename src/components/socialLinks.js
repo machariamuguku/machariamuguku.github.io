@@ -49,25 +49,23 @@ export function SocialLinks() {
           <FontAwesomeIcon icon={faMedium} className={styles.iconSize} />
         </a>
       </div>
-      <div className={styles.item}>
+      <div
+        className={`${styles.item} ${styles.linkContainer} ${styles.noLinkOutline} ${styles.pointer}`}
+        data-for="socialToolTip"
+        data-tip
+        onMouseLeave={() => {
+          setCopiedToClipBoard(false);
+        }}
+        role="button"
+        tabIndex="0"
+      >
         <CopyToClipboard
           text="hello@muguku.co.ke"
           // change tooltip text if copy successful
           onCopy={(result) => setCopiedToClipBoard(result)}
         >
-          <div
-            className={`${styles.linkContainer} ${styles.noLinkOutline} ${styles.pointer}`}
-            data-for="socialToolTip"
-            data-tip
-            onMouseLeave={() => {
-              setCopiedToClipBoard(false);
-            }}
-            role="button"
-            tabIndex="0"
-          >
-            <div className={styles.item}>
-              <FontAwesomeIcon icon={faEnvelope} className={styles.iconSize} />
-            </div>
+          <div className={styles.item}>
+            <FontAwesomeIcon icon={faEnvelope} className={styles.iconSize} />
           </div>
         </CopyToClipboard>
       </div>
