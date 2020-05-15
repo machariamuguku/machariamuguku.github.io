@@ -19,20 +19,6 @@ export function SocialLinks() {
 
   return (
     <div className={styles.container}>
-      {/* the universal react tooltip. Style tooltip here */}
-      <ReactTooltip
-        place="bottom"
-        type="light"
-        textColor="black"
-        backgroundColor={"white"}
-        className={styles.tooltip}
-        id="socialToolTip"
-        getContent={() =>
-          copiedToClipBoard
-            ? "Yay! My email address has been copied to your clipboard✅"
-            : "Click here to copy my email address to your clipboard 😀"
-        }
-      />
       <div className={styles.item}>
         <a
           className={styles.linkColor}
@@ -79,6 +65,20 @@ export function SocialLinks() {
             role="button"
             tabIndex="0"
           >
+            {/* the universal react tooltip. Style tooltip here */}
+            <ReactTooltip
+              place="bottom"
+              type="light"
+              textColor="black"
+              backgroundColor={"white"}
+              className={styles.tooltip}
+              id="socialToolTip"
+              getContent={() =>
+                copiedToClipBoard
+                  ? "Yay! My email address has been copied to your clipboard✅"
+                  : "Click here to copy my email address to your clipboard 😀"
+              }
+            />
             <div className={styles.item}>
               <FontAwesomeIcon icon={faEnvelope} size="1x" />
             </div>
