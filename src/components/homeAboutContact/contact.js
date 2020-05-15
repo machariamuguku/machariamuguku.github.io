@@ -165,7 +165,7 @@ export function Contact() {
         id="getContent"
         getContent={() =>
           copiedToClipBoard
-            ? "Yay! My email address has been copied to your clipboard ✅"
+            ? "Yay! My email address has been copied to your clipboard✅"
             : "Click here to copy my email address to your clipboard 😀"
         }
       />
