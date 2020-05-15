@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./socialLinks.module.css";
 // react font awesome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -16,9 +16,28 @@ import { CopyToClipboard } from "react-copy-to-clipboard";
 
 export function SocialLinks() {
   const [copiedToClipBoard, setCopiedToClipBoard] = useState(false);
+  const [toolTipContent, setToolTipContent] = useState("");
+
+  // set tooltip content after render
+  // this is to avoid showing when rendering
+  useEffect(() => {
+    copiedToClipBoard
+      ? setToolTipContent(
+          "Yay! My email address has been copied to your clipboard✅"
+        )
+      : setToolTipContent(
+          "Click here to copy my email address to your clipboard 😀"
+        );
+
+    return () => {
+      setToolTipContent("");
+    };
+  }, [copiedToClipBoard]);
 
   return (
     <div className={styles.container}>
+      {/* the universal react tooltip. Style tooltip here */}
+      <ReactTooltip getContent={() => toolTipContent} />
       <div className={styles.item}>
         <a
           className={styles.linkColor}
@@ -51,8 +70,12 @@ export function SocialLinks() {
       </div>
       <div
         className={`${styles.item} ${styles.linkContainer} ${styles.noLinkOutline} ${styles.pointer}`}
-        data-for="socialToolTip"
-        data-tip
+        data-tip={toolTipContent}
+        data-class={styles.tooltip}
+        data-place="bottom"
+        data-type="light"
+        data-text-color="black"
+        data-background-color="white"
         onMouseLeave={() => {
           setCopiedToClipBoard(false);
         }}
@@ -69,20 +92,6 @@ export function SocialLinks() {
           </div>
         </CopyToClipboard>
       </div>
-      {/* the universal react tooltip. Style tooltip here */}
-      <ReactTooltip
-        place="bottom"
-        type="light"
-        textColor="black"
-        backgroundColor={"white"}
-        className={styles.tooltip}
-        id="socialToolTip"
-        getContent={() =>
-          copiedToClipBoard
-            ? "Yay! My email address has been copied to your clipboard ✅"
-            : "Click here to copy my email address to your clipboard 😀"
-        }
-      />
     </div>
   );
 }
