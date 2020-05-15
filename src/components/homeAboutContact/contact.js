@@ -97,20 +97,6 @@ export function Contact() {
               role="button"
               tabIndex="0"
             >
-              {/* the universal react tooltip. Style tooltip here */}
-              <ReactTooltip
-                place="bottom"
-                type="light"
-                textColor="black"
-                backgroundColor={"white"}
-                className={styles.tooltip}
-                id="getContent"
-                getContent={() =>
-                  copiedToClipBoard
-                    ? "Yay! My email address has been copied to your clipboard✅"
-                    : "Click here to copy my email address to your clipboard 😀"
-                }
-              />
               <div className={styles.item}>
                 <FontAwesomeIcon
                   icon={faEnvelope}
@@ -169,6 +155,20 @@ export function Contact() {
           </div>
         </div>
       </div>
+      {/* the universal react tooltip. Style tooltip here */}
+      <ReactTooltip
+        place="bottom"
+        type="light"
+        textColor="black"
+        backgroundColor={"white"}
+        className={styles.tooltip}
+        id="getContent"
+        getContent={() =>
+          copiedToClipBoard
+            ? "Yay! My email address has been copied to your clipboard ✅"
+            : "Click here to copy my email address to your clipboard 😀"
+        }
+      />
     </div>
   );
 }
