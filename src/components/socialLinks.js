@@ -26,7 +26,7 @@ export function SocialLinks() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <FontAwesomeIcon icon={faGithub} size="1x" />
+          <FontAwesomeIcon icon={faGithub} className={styles.iconSize} />
         </a>
       </div>
       <div className={styles.item}>
@@ -36,7 +36,7 @@ export function SocialLinks() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <FontAwesomeIcon icon={faLinkedinIn} size="1x" />
+          <FontAwesomeIcon icon={faLinkedinIn} className={styles.iconSize} />
         </a>
       </div>
       <div className={styles.item}>
@@ -46,7 +46,7 @@ export function SocialLinks() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <FontAwesomeIcon icon={faMedium} size="1x" />
+          <FontAwesomeIcon icon={faMedium} className={styles.iconSize} />
         </a>
       </div>
       <div className={styles.item}>
@@ -80,7 +80,7 @@ export function SocialLinks() {
               }
             />
             <div className={styles.item}>
-              <FontAwesomeIcon icon={faEnvelope} size="1x" />
+              <FontAwesomeIcon icon={faEnvelope} className={styles.iconSize} />
             </div>
           </div>
         </CopyToClipboard>

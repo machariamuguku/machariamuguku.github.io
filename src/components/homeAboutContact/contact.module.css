@@ -57,6 +57,10 @@
 .noLinkOutline {
   outline: none;
 }
+.iconSize {
+  width: 1.063rem;
+  height: 1.063rem;
+}
 /* Tablets and anything smaller */
 @media screen and (max-width: 48rem) {
   .bracketLeft {
