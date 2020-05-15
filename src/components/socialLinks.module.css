@@ -28,6 +28,16 @@
 .noLinkOutline {
   outline: none;
 }
+.linkContainer {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  margin-bottom: 0.4rem;
+}
+.iconSize {
+  width: 1.063rem;
+  height: 1.063rem;
+}
 /* Tablets and anything smaller */
 @media screen and (max-width: 48rem) {
   .container {

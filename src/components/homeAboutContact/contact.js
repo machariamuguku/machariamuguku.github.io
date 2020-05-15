@@ -112,7 +112,10 @@ export function Contact() {
                 }
               />
               <div className={styles.item}>
-                <FontAwesomeIcon icon={faEnvelope} size="1x" />
+                <FontAwesomeIcon
+                  icon={faEnvelope}
+                  className={styles.iconSize}
+                />
               </div>
               <div className={`${styles.item} ${styles.someMargin}`}>
                 <span className={styles.linkSize}>hello@muguku.co.ke</span>
@@ -127,7 +130,10 @@ export function Contact() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <FontAwesomeIcon icon={faLinkedinIn} size="1x" />
+                <FontAwesomeIcon
+                  icon={faLinkedinIn}
+                  className={styles.iconSize}
+                />
               </a>
             </div>
             <div className={`${styles.item} ${styles.someMargin}`}>
