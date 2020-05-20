@@ -52,7 +52,6 @@ const ArtDirectedFullBackground = ({ children }) => {
       className={styles.FullBackground}
       fluid={backgroundArtDirectionStack}
       backgroundColor={`#000000`}
-      // title="Macharia Muguku"
       id="adfullscreenbg"
       role="img"
       aria-label="Macharia Muguku"

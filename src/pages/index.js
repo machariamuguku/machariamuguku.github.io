@@ -4,18 +4,15 @@ import React from "react";
 import { MenuContextProvider } from "../components/menuContext";
 
 // components
-import ArtDirectedFullBackground from "../components/ArtDirectedFullBackground";
 import Layout from "../components/layout";
 import { LandingPageLayout } from "../components/landingPageLayout";
 
 const IndexPage = () => (
-  <ArtDirectedFullBackground>
-    <MenuContextProvider>
-      <Layout>
-        <LandingPageLayout />
-      </Layout>
-    </MenuContextProvider>
-  </ArtDirectedFullBackground>
+  <MenuContextProvider>
+    <Layout>
+      <LandingPageLayout />
+    </Layout>
+  </MenuContextProvider>
 );
 
 export default IndexPage;
