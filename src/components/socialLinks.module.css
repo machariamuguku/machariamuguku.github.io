@@ -1,5 +1,4 @@
 .container {
-  margin-top: 12rem;
   display: flex;
   flex-wrap: nowrap;
   flex-direction: column;
@@ -41,7 +40,6 @@
 /* Tablets and anything smaller */
 @media screen and (max-width: 48rem) {
   .container {
-    margin-top: 2rem;
     flex-direction: row;
   }
   .item {

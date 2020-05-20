@@ -1,13 +1,6 @@
 .container {
-  margin-top: 7rem;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
   color: white;
-}
-/* Tablets and anything smaller */
-@media screen and (max-width: 48rem) {
-  .container {
-    margin-top: 2rem;
-  }
 }

@@ -1,3 +1,6 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`
+});
 module.exports = {
   siteMetadata: {
     title: `Muguku`,
@@ -7,6 +10,19 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    {
+      resolve: "gatsby-source-graphql",
+      options: {
+        typeName: "GITHUB",
+        fieldName: "github",
+        url: "https://api.github.com/graphql",
+        headers: {
+          Authorization: `bearer ${process.env.GATSBY_PORTFOLIO_GITHUB_TOKEN}`
+        },
+        // refetch interval in seconds
+        refetchInterval: 300
+      }
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
