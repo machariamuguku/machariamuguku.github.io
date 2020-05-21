@@ -21,32 +21,12 @@ export function Articles() {
               title
               createdAt(formatString: "DD MMM YYYY")
               virtuals {
-                subtitle
                 previewImage {
                   imageId
                 }
-                wordCount
                 readingTime
-                tags {
-                  slug
-                }
-                totalClapCount
               }
               uniqueSlug
-              previewContent {
-                bodyModel {
-                  paragraphs {
-                    text
-                  }
-                }
-              }
-              previewContent2 {
-                bodyModel {
-                  paragraphs {
-                    text
-                  }
-                }
-              }
             }
           }
         }
