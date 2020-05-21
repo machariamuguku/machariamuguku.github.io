@@ -6,6 +6,7 @@ import HomeAboutContact from "./homeAboutContact";
 import { SocialLinks } from "./socialLinks";
 import { CaretDown } from "./caretDown";
 import { Projects } from "./projects";
+import { Articles } from "./articles";
 
 export const LandingPageLayout = () => {
   return (
@@ -19,6 +20,9 @@ export const LandingPageLayout = () => {
       <CaretDown />
       <div className={styles.projects}>
         <Projects />
+      </div>
+      <div className={styles.articles}>
+        <Articles />
       </div>
     </div>
   );

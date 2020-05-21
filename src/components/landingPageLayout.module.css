@@ -25,7 +25,15 @@
   flex-direction: row;
   text-align: center;
   margin-top: 1rem;
-  margin-bottom: 10rem;
+  margin-bottom: 2rem;
+  justify-content: center;
+}
+.articles {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
   justify-content: center;
 }
 /* Tablets and anything smaller */

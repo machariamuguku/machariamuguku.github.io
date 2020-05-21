@@ -1,0 +1,42 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  max-width: 95vw;
+  color: white;
+  margin-bottom: 4rem;
+  text-align: center;
+}
+.horizontalContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  text-align: center;
+}
+.item {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  margin: 2rem;
+  width: 320px;
+  height: 265px;
+  background-color: #0f1113;
+}
+.item img {
+  height: 150px;
+}
+.bottomContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  margin: 0 0.5rem 0.5rem 0.5rem;
+  margin-top: auto;
+}
+.bottomContainer span {
+  font-size: 10pt;
+  font-weight: 600;
+}
+.LinkColor{
+    color: white;
+    text-decoration: none;
+}
