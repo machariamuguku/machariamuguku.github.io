@@ -6923,6 +6923,14 @@ gatsby-source-graphql@^2.5.1:
     node-fetch "^1.7.3"
     uuid "^3.4.0"
 
+gatsby-source-medium@^2.3.2:
+  version "2.3.2"
+  resolved "https://registry.yarnpkg.com/gatsby-source-medium/-/gatsby-source-medium-2.3.2.tgz#a7e8d6ba293d13abf6faa5d686cdda731740542f"
+  integrity sha512-8H9azpufe+ZGarx5uASL3cIVug5GBiCfbbq7rXJp3ouz796pTKxba0gLR4jAtwEK7udvi9NKCb9kcMj4OfSLqw==
+  dependencies:
+    "@babel/runtime" "^7.9.6"
+    axios "^0.19.2"
+
 gatsby-telemetry@^1.2.3:
   version "1.2.3"
   resolved "https://registry.yarnpkg.com/gatsby-telemetry/-/gatsby-telemetry-1.2.3.tgz#0b38068bbc85a597afb7ee407fb0240997cec6ef"

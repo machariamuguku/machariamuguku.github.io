@@ -2,6 +2,7 @@ require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`
 });
 module.exports = {
+  // base site data
   siteMetadata: {
     title: `Muguku`,
     owner: `Macharia Muguku`,
@@ -12,6 +13,7 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-react-helmet`,
+    // github graphql api
     {
       resolve: "gatsby-source-graphql",
       options: {
@@ -23,6 +25,13 @@ module.exports = {
         }
       }
     },
+    // medium REST api
+    {
+      resolve: `gatsby-source-medium`,
+      options: {
+        username: `@imash`
+      }
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -30,6 +39,7 @@ module.exports = {
         path: `${__dirname}/src/images`
       }
     },
+    // PWA manifest
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

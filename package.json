@@ -21,6 +21,7 @@
     "gatsby-plugin-sharp": "^2.4.13",
     "gatsby-source-filesystem": "^2.1.56",
     "gatsby-source-graphql": "^2.5.1",
+    "gatsby-source-medium": "^2.3.2",
     "gatsby-transformer-sharp": "^2.3.19",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
