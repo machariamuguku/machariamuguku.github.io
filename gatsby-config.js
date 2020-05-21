@@ -20,9 +20,7 @@ module.exports = {
         url: "https://api.github.com/graphql",
         headers: {
           Authorization: `bearer ${process.env.GATSBY_PORTFOLIO_GITHUB_TOKEN}`
-        },
-        // refetch interval in seconds
-        refetchInterval: 300
+        }
       }
     },
     {
