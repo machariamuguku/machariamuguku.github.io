@@ -85,6 +85,7 @@ export function Projects() {
               <div className={styles.downContainerItem}>
                 {edge.node.languages.edges.map((edge) => (
                   <span
+                    key={edge.node.id}
                     style={{ color: `${edge.node.color}`, fontSize: "11pt" }}
                   >
                     {edge.node.name}
