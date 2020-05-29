@@ -1,54 +1,51 @@
-.row {
+.container {
+  position: fixed;
+  top: 0;
+  transition: top 0.3s;
+  z-index: 100;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
+  justify-content: space-between;
 }
-.column {
-  display: flex;
-  flex-direction: column;
-  flex-basis: content;
-  flex: 1;
+.hideHeader {
+  top: -5rem;
+  transition: top 0.3s;
 }
-.NavRow {
+.container .item:first-child {
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap;
-  margin-right: 2rem;
-  margin-left: -2rem;
+  justify-content: space-between;
+  width: 40vw;
+  padding-top: 1.7rem;
+  padding-bottom: 1rem;
+  background-color: black;
 }
-.NavColumn {
-  display: flex;
-  flex-direction: column;
-  flex-basis: content;
-  flex: 1;
-}
-.marginTop {
-  margin-top: 1.7rem;
-}
-.headerLogoLink {
-  margin-left: 7rem;
+.linkText {
   color: white;
+  font-family: Montserrat, sans-serif;
   text-decoration: none;
+}
+.container .item:first-child .linkText {
+  margin-left: 7rem;
   font-size: 2rem;
   font-weight: 600;
-  font-family: Montserrat, sans-serif;
 }
-.headerLink {
-  color: white;
-  text-decoration: none;
+.container .item:last-child {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  width: 60vw;
+  padding-top: 1.7rem;
+  padding-bottom: 1rem;
+  background-color: black;
+}
+.container .item:last-child .linkText {
   font-size: 1.2rem;
   font-weight: 200;
-  font-family: Montserrat, sans-serif;
 }
-.headerLink:before,
-.headerLink:after {
-  display: inline-block;
-  opacity: 0;
-  -webkit-transition: -webkit-transform 0.3s, opacity 0.2s;
-  -moz-transition: -moz-transform 0.3s, opacity 0.2s;
-  transition: transform 0.3s, opacity 0.2s;
-}
-.headerLink:before {
+.container .item:last-child .linkText:before {
   font-size: 1.4rem;
   content: "[";
   margin-right: 0.2rem;
@@ -56,7 +53,7 @@
   -moz-transform: translate(1.25rem);
   transform: translate(1.25rem);
 }
-.headerLink:after {
+.container .item:last-child .linkText:after {
   font-size: 1.4rem;
   content: "]";
   margin-left: 0.2rem;
@@ -64,10 +61,18 @@
   -moz-transform: translate(-1.25rem);
   transform: translate(-1.25rem);
 }
-.headerLink:hover:before,
-.headerLink:hover:after,
-.activeHeaderLink:before,
-.activeHeaderLink:after {
+.container .item:last-child .linkText:before,
+.container .item:last-child .linkText:after {
+  display: inline-block;
+  opacity: 0;
+  -webkit-transition: -webkit-transform 0.3s, opacity 0.2s;
+  -moz-transition: -moz-transform 0.3s, opacity 0.2s;
+  transition: transform 0.3s, opacity 0.2s;
+}
+.container .item:last-child .linkText:hover:before,
+.container .item:last-child .linkText:hover:after,
+.container .item:last-child .activeLink:before,
+.container .item:last-child .activeLink:after {
   opacity: 1;
   -webkit-transform: translate(0rem);
   -moz-transform: translate(0rem);
@@ -75,56 +80,22 @@
 }
 .mobileNav {
   display: none;
-}
-.NavButton {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  box-sizing: border-box;
   outline: none;
-  list-style: none;
-  word-wrap: break-word;
-  color: inherit;
-  font: inherit;
-  cursor: pointer;
-  font-family: inherit;
-  font-size: 100%;
-  line-height: 1.15;
-  margin: 0;
-  overflow: visible;
-  text-transform: none;
-  position: relative;
-  float: right;
-  margin-right: 2rem;
   padding: 0.563rem 0.625rem;
-  margin-bottom: 0.5rem;
   background-color: transparent;
-  background-image: none;
   border: 0.063rem solid transparent;
   border-radius: 0.25rem;
   -webkit-appearance: button;
   border-color: #ddd;
-  z-index: 100;
   transition: 0.3s all;
   -moz-transition: 0.3s all;
+  margin-right: 1.5rem;
 }
 .NavTogglerSpan {
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  color: inherit;
-  font: inherit;
-  cursor: pointer;
-  font-family: inherit;
-  font-size: 100%;
-  line-height: 1.15;
-  text-transform: none;
   margin-bottom: 0.25rem;
-  padding: 0;
-  box-sizing: border-box;
-  outline: none;
-  list-style: none;
-  word-wrap: break-word;
-  display: block;
   width: 1.375rem;
   height: 0.125rem;
-  border-radius: 0.063rem;
   background-color: #fff;
   transition: 0.3s all;
   -moz-transition: 0.3s all;
@@ -155,65 +126,52 @@
 
 /* Tablets and anything smaller */
 @media screen and (max-width: 48rem) {
-  .headerLogoLink {
+  .container {
+    flex-direction: column;
+  }
+  .container .item:first-child .linkText {
     margin-left: 1rem;
-    font-size: 1.7rem;
   }
-  .headerLink {
-    margin-bottom: 1.1rem;
+  .container .item:first-child {
+    width: 100vw;
   }
-  .mobileNav {
-    display: block;
-  }
-  .NavRow {
+  .container .item:last-child {
+    width: 100vw;
+    padding-top: 0;
+    padding-bottom: 0;
+    display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    margin: 0.2rem 0 0 0;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    letter-spacing: 0.031rem;
+    box-shadow: inset 0 0.09rem 0 rgba(255, 255, 255, 0.2);
   }
-  .row {
+  .container .item:first-child .linkText {
+    font-size: 1.7rem;
+  }
+  .mobileNav {
+    display: flex;
     flex-direction: column;
   }
-  .NavColumn {
-    flex-direction: row;
+  .container .item:last-child .linkText:not(:first-child) {
+    margin-top: 1.7rem;
   }
-  .flexEnd {
-    justify-content: flex-end;
-  }
-  .mobileNavBackground {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    background-color: black;
-    font-family: "Poppins", sans-serif;
-    font-size: 10.188rem;
-    line-height: 1.8;
-    font-weight: 300;
-    letter-spacing: 0.031rem;
-    color: #666;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    outline: none;
-    list-style: none;
-    word-wrap: break-word;
-    overflow-x: visible;
-    padding-right: 0.938rem;
-    padding-left: 0.938rem;
-    box-shadow: inset 0 0.043rem 0 rgba(255, 255, 255, 0.2);
-  }
-  .hideOnMobile {
-    overflow: hidden;
-    height: 0;
-    -webkit-transition: height 220ms ease-in;
-    -moz-transition: height 220ms ease-in;
-    -o-transition: height 220ms ease-in;
-    transition: height 220ms ease-in;
+  .container .item:last-child .linkText:first-child {
+    margin-top: 0.5rem;
   }
   .showOnMobile {
-    height: 20rem;
-    -webkit-transition: height 220ms ease-out;
-    -moz-transition: height 220ms ease-out;
-    -o-transition: height 220ms ease-out;
-    transition: height 220ms ease-out;
+    opacity: 1;
+    -webkit-transition: all 220ms ease-out;
+    -moz-transition: all 220ms ease-out;
+    -o-transition: all 220ms ease-out;
+    transition: all 220ms ease-out;
+  }
+  .hideOnMobile {
+    opacity: 0;
+    height: 0;
+    -webkit-transition: all 220ms ease-in;
+    -moz-transition: all 220ms ease-in;
+    -o-transition: all 220ms ease-in;
+    transition: all 220ms ease-in;
   }
 }
