@@ -1,5 +1,7 @@
 import React from "react";
 import GatsbyLogo from "../images/Gatsby_Logo.svg";
+
+// stylesheet
 import styles from "./footer.module.css";
 
 export default function Footer({ siteOwner }) {

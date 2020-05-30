@@ -1,5 +1,7 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
+
+// stylesheet
 import styles from "./articles.module.css";
 
 // react font awesome

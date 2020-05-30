@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import styles from "./socialLinks.module.css";
 // react font awesome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -13,6 +12,10 @@ import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
 import ReactTooltip from "react-tooltip";
 // copy to clipboard
 import { CopyToClipboard } from "react-copy-to-clipboard";
+
+// stylesheet
+import classNames from "classnames";
+import styles from "./socialLinks.module.css";
 
 export function SocialLinks() {
   const [copiedToClipBoard, setCopiedToClipBoard] = useState(false);
@@ -69,7 +72,12 @@ export function SocialLinks() {
         </a>
       </div>
       <div
-        className={`${styles.item} ${styles.linkContainer} ${styles.noLinkOutline} ${styles.pointer}`}
+        className={classNames(
+          styles.item,
+          styles.linkContainer,
+          styles.noLinkOutline,
+          styles.pointer
+        )}
         data-tip={toolTipContent}
         data-class={styles.tooltip}
         data-place="bottom"

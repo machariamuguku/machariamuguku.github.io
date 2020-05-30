@@ -18,6 +18,7 @@ import ReactTooltip from "react-tooltip";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 
 // stylesheet
+import classNames from "classnames";
 import styles from "./contact.module.css";
 
 const navigationItems = ["Home", "About", "Contact"];
@@ -61,7 +62,7 @@ export function Contact() {
 
       {/* left bracket */}
       <div className={styles.item}>
-        <div className={`${styles.container} ${styles.bracketLeft}`}>
+        <div className={classNames(styles.container, styles.bracketLeft)}>
           <div className={styles.item}>
             <span className={styles.brackets}>{"("}</span>
           </div>
@@ -88,7 +89,11 @@ export function Contact() {
             onCopy={(result) => setCopiedToClipBoard(result)}
           >
             <div
-              className={`${styles.linkContainer} ${styles.noLinkOutline} ${styles.pointer}`}
+              className={classNames(
+                styles.linkContainer,
+                styles.noLinkOutline,
+                styles.pointer
+              )}
               data-for="getContent"
               data-tip
               onMouseLeave={() => {
@@ -103,7 +108,7 @@ export function Contact() {
                   className={styles.iconSize}
                 />
               </div>
-              <div className={`${styles.item} ${styles.someMargin}`}>
+              <div className={classNames(styles.item, styles.someMargin)}>
                 <span className={styles.linkSize}>hello@muguku.co.ke</span>
               </div>
             </div>
@@ -122,7 +127,7 @@ export function Contact() {
                 />
               </a>
             </div>
-            <div className={`${styles.item} ${styles.someMargin}`}>
+            <div className={classNames(styles.item, styles.someMargin)}>
               <a
                 className={styles.linkColor}
                 href="https://www.linkedin.com/in/machariamuguku/"
@@ -138,7 +143,7 @@ export function Contact() {
         </div>
       </div>
       {/* right bracket */}
-      <div className={`${styles.item} ${styles.bracketRight}`}>
+      <div className={classNames(styles.item, styles.bracketRight)}>
         <div className={styles.container}>
           <a
             className={styles.item}

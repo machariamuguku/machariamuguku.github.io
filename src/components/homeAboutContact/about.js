@@ -8,6 +8,7 @@ import SEO from "../seo";
 import { LeftCaret, RightCaret } from "./carets";
 
 // stylesheet
+import classNames from "classnames";
 import styles from "./about.module.css";
 
 const navigationItems = ["Home", "About", "Contact"];
@@ -50,7 +51,7 @@ export function About() {
 
       {/* left bracket */}
       <div className={styles.item}>
-        <div className={`${styles.container} ${styles.bracketLeft}`}>
+        <div className={classNames(styles.container, styles.bracketLeft)}>
           <div className={styles.item}>
             <span className={styles.brackets}>{"["}</span>
           </div>
@@ -79,7 +80,7 @@ export function About() {
       </div>
 
       {/* right bracket */}
-      <div className={`${styles.item} ${styles.bracketRight}`}>
+      <div className={classNames(styles.item, styles.bracketRight)}>
         <div className={styles.container}>
           <a
             className={styles.item}

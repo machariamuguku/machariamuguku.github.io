@@ -2,6 +2,7 @@ import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import BackgroundImage from "gatsby-background-image";
 
+// stylesheet
 import styles from "./ArtDirectedFullBackground.module.css";
 
 const ArtDirectedFullBackground = ({ children }) => {

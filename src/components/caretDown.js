@@ -4,13 +4,15 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
+// stylesheet
+import classNames from "classnames";
 import styles from "./caretDown.module.css";
 
 export function CaretDown() {
   return (
     <div className={styles.caretDown}>
       <div
-        className={`${styles.animateCaretDown} ${styles.noLinkOutline}`}
+        className={classNames(styles.animateCaretDown, styles.noLinkOutline)}
         onClick={() => {
           console.log("go down implementation here");
         }}

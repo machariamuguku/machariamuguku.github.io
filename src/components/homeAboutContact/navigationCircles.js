@@ -1,4 +1,6 @@
 import React, { useContext } from "react";
+
+// stylesheet
 import styles from "./navigationCircles.module.css";
 
 // context provider

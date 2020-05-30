@@ -2,6 +2,7 @@ import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import Octicon, { Repo, Star, RepoForked } from "@primer/octicons-react";
 
+// stylesheet
 import styles from "./projects.module.css";
 
 // todo: trim text if overflows

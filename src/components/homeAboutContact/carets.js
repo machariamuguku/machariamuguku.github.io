@@ -1,4 +1,6 @@
 import React from "react";
+
+// stylesheet
 import styles from "./carets.module.css";
 // react font awesome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

@@ -1,5 +1,6 @@
 import React from "react";
 
+// stylesheet
 import styles from "./landingPageLayout.module.css";
 
 import HomeAboutContact from "./homeAboutContact";
