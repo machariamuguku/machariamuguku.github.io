@@ -3,7 +3,7 @@ import React, { useContext } from "react";
 // context provider
 import { MenuContext } from "../menuContext";
 // custom typeWriter hook
-import { useTypeWriter } from "./useTypeWriter";
+import { useTypeWriter } from "../customHooks/useTypeWriter";
 
 // components
 import SEO from "../seo";
@@ -26,7 +26,7 @@ const introductionSummary = ["ENGINEER", "DEVELOPER", "MINIMALIST"];
 
 export default function Home() {
   const { activeMenu, setActiveMenu } = useContext(MenuContext);
-  const { introduction } = useTypeWriter(introductions);
+  const introduction = useTypeWriter(introductions);
 
   const changeMenu = (direction) => {
     const indexOfCurrentItem = navigationItems.indexOf(activeMenu);

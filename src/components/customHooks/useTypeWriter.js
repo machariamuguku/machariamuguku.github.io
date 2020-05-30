@@ -53,5 +53,5 @@ export function useTypeWriter(Introductions) {
       setIntroduction("");
     };
   }, [Introductions]);
-  return { introduction };
+  return introduction;
 }

@@ -5,8 +5,8 @@ import { useTransition, animated } from "react-spring";
 // context provider
 import { MenuContext } from "./menuContext";
 
-import { useHideOnScrollDown } from "./useHideOnScrollDown";
-import { useMediaQuery } from "./useMediaQuery";
+import { useHideOnScrollDown } from "./customHooks/useHideOnScrollDown";
+import { useMediaQuery } from "./customHooks/useMediaQuery";
 
 // stylesheet
 import classNames from "classnames";
