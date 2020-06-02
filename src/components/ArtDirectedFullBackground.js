@@ -1,10 +1,12 @@
 import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import BackgroundImage from "gatsby-background-image";
+import styled from "styled-components";
 
-// stylesheet
-import styles from "./ArtDirectedFullBackground.module.css";
-
+const FullBackground = styled(BackgroundImage)`
+  height: 92vh;
+  background-size: auto 90vh;
+`;
 const ArtDirectedFullBackground = ({ children }) => {
   const { desktop, medium, small } = useStaticQuery(
     graphql`
@@ -48,18 +50,17 @@ const ArtDirectedFullBackground = ({ children }) => {
   ];
 
   return (
-    <BackgroundImage
+    <FullBackground
       Tag="section"
-      className={styles.FullBackground}
       fluid={backgroundArtDirectionStack}
-      backgroundColor={`#000000`}
+      backgroundColor="#000000"
       id="adfullscreenbg"
       role="img"
       aria-label="Macharia Muguku"
       preserveStackingContext={true}
     >
       {children}
-    </BackgroundImage>
+    </FullBackground>
   );
 };
 
