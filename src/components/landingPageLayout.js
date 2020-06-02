@@ -1,7 +1,5 @@
 import React from "react";
-
-// stylesheet
-import styles from "./landingPageLayout.module.css";
+import styled from "styled-components";
 
 import HomeAboutContact from "./homeAboutContact";
 import { SocialLinks } from "./socialLinks";
@@ -9,22 +7,69 @@ import { CaretDown } from "./caretDown";
 import { Projects } from "./projects";
 import { Articles } from "./articles";
 
+const VerticalContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-items: center;
+  justify-content: center;
+`;
+const Container = styled.div`
+  margin-top: 7rem;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  @media (max-width: 48rem) {
+    margin-top: 2rem;
+  }
+`;
+const SocialLinksStl = styled.div`
+  margin-top: 2rem;
+  position: absolute;
+  right: 10rem;
+  @media (max-width: 48rem) {
+    margin-top: 2rem;
+    position: relative;
+    right: auto;
+  }
+`;
+const ProjectsStl = styled.div`
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  justify-content: center;
+`;
+const ArticlesStl = styled.div`
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  justify-content: center;
+`;
+
 export const LandingPageLayout = () => {
   return (
-    <div className={styles.verticalContainer}>
-      <div className={styles.container}>
+    <VerticalContainer>
+      <Container>
         <HomeAboutContact />
-        <div className={styles.socialLinks}>
+        <SocialLinksStl>
           <SocialLinks />
-        </div>
-      </div>
+        </SocialLinksStl>
+      </Container>
       <CaretDown />
-      <div className={styles.projects}>
+      <ProjectsStl>
         <Projects />
-      </div>
-      <div className={styles.articles}>
+      </ProjectsStl>
+      <ArticlesStl>
         <Articles />
-      </div>
-    </div>
+      </ArticlesStl>
+    </VerticalContainer>
   );
 };
