@@ -1,9 +1,57 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import Octicon, { Repo, Star, RepoForked } from "@primer/octicons-react";
+import styled from "styled-components";
 
-// stylesheet
-import styles from "./projects.module.css";
+const MainContainer = styled.div`
+  color: white;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: #0f1113;
+  padding-bottom: 2rem;
+`;
+const Container = styled.div`
+  color: white;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+`;
+const Item = styled.a`
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 auto;
+  margin: 1rem;
+  width: 20rem;
+  height: 10rem;
+  padding: 1rem;
+  background-color: #000;
+  color: white;
+  text-decoration: none;
+`;
+const DownContainer = styled.div`
+  margin-top: auto;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+`;
+const Description = styled.span`
+  font-size: 11pt;
+`;
+const DownContainerItem = styled.div`
+  flex: 1;
+  font-size: 10pt;
+`;
+const Header = styled.h3`
+  font-size: 12pt;
+  padding-top: 0.5rem;
+`;
+const NodeColor = styled.span`
+  color: ${(props) => props.color || "white"};
+`;
 
 // todo: trim text if overflows
 export function Projects() {
@@ -54,25 +102,18 @@ export function Projects() {
     `
   );
   return (
-    <div className={styles.mainContainer}>
-      <div className={styles.container}>
-        <h3
-          style={{
-            fontSize: "12pt",
-            paddingTop: "0.5rem"
-          }}
-        >
-          Popular Projects
-        </h3>
-      </div>
-      <div className={styles.container}>
+    <MainContainer>
+      <Container>
+        <Header>Popular Projects</Header>
+      </Container>
+
+      <Container>
         {edges.map((edge) => (
-          <a
+          <Item
             href={edge.node.url}
             target="blank"
             rel="noopener noreferrer"
             key={edge.node.id}
-            className={styles.item}
           >
             <h5>
               <Octicon icon={Repo} />
@@ -80,36 +121,32 @@ export function Projects() {
               {edge.node.name}
             </h5>
             <div>
-              <span style={{ fontSize: "11pt" }}>{edge.node.description}</span>
+              <Description>{edge.node.description}</Description>
             </div>
-            <div className={styles.downContainer}>
-              <div className={styles.downContainerItem}>
+
+            <DownContainer>
+              <DownContainerItem>
                 {edge.node.languages.edges.map((edge) => (
-                  <span
-                    key={edge.node.id}
-                    style={{ color: `${edge.node.color}`, fontSize: "11pt" }}
-                  >
+                  <NodeColor key={edge.node.id} color={edge.node.color}>
                     {edge.node.name}
-                  </span>
+                  </NodeColor>
                 ))}
-              </div>
-              <div className={styles.downContainerItem}>
+              </DownContainerItem>
+              <DownContainerItem>
                 <Octicon icon={Star} />
                 {edge.node.stargazers.totalCount}
                 &nbsp;
-              </div>
-              <div className={styles.downContainerItem}>
+              </DownContainerItem>
+              <DownContainerItem>
                 <Octicon icon={RepoForked} />
                 {edge.node.forkCount}
                 &nbsp;
-              </div>
-              <div className={styles.downContainerItem}>
-                {edge.node.diskUsage}kb
-              </div>
-            </div>
-          </a>
+              </DownContainerItem>
+              <DownContainerItem>{edge.node.diskUsage}kb</DownContainerItem>
+            </DownContainer>
+          </Item>
         ))}
-      </div>
-    </div>
+      </Container>
+    </MainContainer>
   );
 }
