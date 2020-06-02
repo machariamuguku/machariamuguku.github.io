@@ -1,12 +1,54 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
-
-// stylesheet
-import styles from "./articles.module.css";
+import styled from "styled-components";
 
 // react font awesome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarTimes, faClock } from "@fortawesome/free-solid-svg-icons";
+
+// styles
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  max-width: 95vw;
+  color: white;
+  margin-bottom: 4rem;
+  text-align: center;
+`;
+const HorizontalContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  text-align: center;
+`;
+const Item = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  margin: 2rem;
+  width: 320px;
+  height: 265px;
+  background-color: #0f1113;
+  img {
+    height: 150px;
+  }
+`;
+const BottomContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  margin: 0 0.5rem 0.5rem 0.5rem;
+  margin-top: auto;
+  span {
+    font-size: 10pt;
+    font-weight: 600;
+  }
+`;
+const LinkColor = styled.a`
+  color: white;
+  text-decoration: none;
+`;
 
 export function Articles() {
   const data = useStaticQuery(
@@ -36,18 +78,17 @@ export function Articles() {
     `
   );
   return (
-    <div className={styles.container}>
+    <Container>
       <h3>Latest Articles</h3>
-      <div className={styles.horizontalContainer}>
+      <HorizontalContainer>
         {data.allMediumPost.edges.map((edge) => (
-          <a
+          <LinkColor
             href={`https://medium.com/@iMash/${edge.node.uniqueSlug}?source=muguku.co.ke`}
             target="_blank"
             rel="noopener noreferrer"
-            className={styles.LinkColor}
             key={edge.node.id}
           >
-            <div className={styles.item}>
+            <Item>
               <img
                 src={
                   edge.node.virtuals.previewImage.imageId.length > 0
@@ -57,22 +98,14 @@ export function Articles() {
                 alt="medium article previewImage"
               />
               <h5>{edge.node.title}</h5>
-              <div className={styles.bottomContainer}>
+              <BottomContainer>
                 <div>
-                  <FontAwesomeIcon
-                    icon={faCalendarTimes}
-                    size="sm"
-                    className={styles.goingDown}
-                  />
+                  <FontAwesomeIcon icon={faCalendarTimes} size="sm" />
                   &nbsp;
                   <span>{edge.node.createdAt}</span>
                 </div>
                 <div>
-                  <FontAwesomeIcon
-                    icon={faClock}
-                    size="sm"
-                    className={styles.goingDown}
-                  />
+                  <FontAwesomeIcon icon={faClock} size="sm" />
                   &nbsp;
                   <span>
                     {edge.node.virtuals.readingTime.toLocaleString("en-KE", {
@@ -81,11 +114,11 @@ export function Articles() {
                     mins
                   </span>
                 </div>
-              </div>
-            </div>
-          </a>
+              </BottomContainer>
+            </Item>
+          </LinkColor>
         ))}
-      </div>
-    </div>
+      </HorizontalContainer>
+    </Container>
   );
 }
