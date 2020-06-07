@@ -41,19 +41,19 @@ export function Contact() {
       // set to first index
       if (indexOfCurrentItem + 1 === navigationItems.length) {
         setActiveMenu(navigationItems[0]);
-      } else {
-        setActiveMenu(navigationItems[indexOfCurrentItem + 1]);
+        return;
       }
-    } else {
-      // set to index of previous item
-      // if the previous index is less than zero (first index)
-      // set to the biggest index
-      if (indexOfCurrentItem - 1 < 0) {
-        setActiveMenu(navigationItems[navigationItems.length - 1]);
-      } else {
-        setActiveMenu(navigationItems[indexOfCurrentItem - 1]);
-      }
+      setActiveMenu(navigationItems[indexOfCurrentItem + 1]);
+      return;
     }
+    // set to index of previous item
+    // if the previous index is less than zero (first index)
+    // set to the biggest index
+    if (indexOfCurrentItem - 1 < 0) {
+      setActiveMenu(navigationItems[navigationItems.length - 1]);
+      return;
+    }
+    setActiveMenu(navigationItems[indexOfCurrentItem - 1]);
   };
 
   return (
