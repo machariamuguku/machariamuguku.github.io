@@ -12,7 +12,6 @@
     "@fortawesome/react-fontawesome": "^0.1.9",
     "@primer/octicons-react": "^9.6.0",
     "babel-plugin-styled-components": "^1.10.7",
-    "classnames": "^2.2.6",
     "gatsby": "^2.19.45",
     "gatsby-background-image": "^1.1.1",
     "gatsby-cli": "^2.12.21",
