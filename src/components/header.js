@@ -9,7 +9,6 @@ import { useHideOnScrollDown } from "./customHooks/useHideOnScrollDown";
 import { useMediaQuery } from "./customHooks/useMediaQuery";
 
 // stylesheet
-import classNames from "classnames";
 import styles from "./header.module.css";
 
 const homeTabs = ["Home", "About", "Projects", "Articles", "Contact"];
@@ -48,9 +47,9 @@ const Header = ({ siteTitle = "" }) => {
 
   return (
     <header
-      className={classNames(styles.container, {
-        [styles.hideHeader]: isScrollDownValid
-      })}
+      className={`${styles.container} ${
+        isScrollDownValid ? styles.hideHeader : ""
+      }`}
     >
       <div className={styles.item}>
         {/* logo */}
@@ -68,9 +67,9 @@ const Header = ({ siteTitle = "" }) => {
         {/* mobile menu toggle button */}
         {isMobileOrTablet && (
           <button
-            className={classNames(styles.mobileNav, {
-              [styles.mobileNavOpen]: toggleMobileNav
-            })}
+            className={`${styles.mobileNav} ${
+              toggleMobileNav ? styles.mobileNavOpen : ""
+            }`}
             type="button"
             onClick={() => setToggleMobileNav((prevState) => !prevState)}
           >
@@ -126,9 +125,9 @@ const PageLink = ({
   switchTabs = () => {}
 }) => (
   <a
-    className={classNames(styles.linkText, {
-      [styles.activeLink]: activeMenu === theComponent
-    })}
+    className={`${styles.linkText} ${
+      activeMenu === theComponent ? styles.activeLink : ""
+    }`}
     href={`#${theComponent}`}
     onClick={() => {
       switchTabs(theComponent);
