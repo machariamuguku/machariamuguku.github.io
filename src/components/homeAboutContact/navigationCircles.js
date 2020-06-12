@@ -1,7 +1,5 @@
 import React, { useContext } from "react";
-
-// stylesheet
-import styles from "./navigationCircles.module.css";
+import styled from "styled-components";
 
 // context provider
 import { MenuContext } from "../menuContext";
@@ -11,13 +9,28 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircle } from "@fortawesome/free-regular-svg-icons";
 import { faCircle as CircleHighlighted } from "@fortawesome/free-solid-svg-icons";
 
+const Container = styled.div`
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  color: white;
+`;
+const Item = styled.a`
+  flex: 0 0 auto;
+  margin-right: 1rem;
+  cursor: pointer;
+  color: white;
+`;
+
 export function NavigationCircles() {
   const { activeMenu, setActiveMenu } = useContext(MenuContext);
   return (
-    <div className={styles.container}>
-      <a
+    <Container>
+      <Item
         href="#Home"
-        className={styles.item}
         onClick={(e) => {
           e.preventDefault();
           setActiveMenu("Home");
@@ -27,10 +40,9 @@ export function NavigationCircles() {
           icon={activeMenu === "Home" ? CircleHighlighted : faCircle}
           size="1x"
         />
-      </a>
-      <a
+      </Item>
+      <Item
         href="#About"
-        className={styles.item}
         onClick={(e) => {
           e.preventDefault();
           setActiveMenu("About");
@@ -40,10 +52,9 @@ export function NavigationCircles() {
           icon={activeMenu === "About" ? CircleHighlighted : faCircle}
           size="1x"
         />
-      </a>
-      <a
+      </Item>
+      <Item
         href="#Contact"
-        className={styles.item}
         onClick={(e) => {
           e.preventDefault();
           setActiveMenu("Contact");
@@ -53,7 +64,7 @@ export function NavigationCircles() {
           icon={activeMenu === "Contact" ? CircleHighlighted : faCircle}
           size="1x"
         />
-      </a>
-    </div>
+      </Item>
+    </Container>
   );
 }
