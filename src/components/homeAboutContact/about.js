@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import styled from "styled-components";
 
 // context provider
 import { MenuContext } from "../menuContext";
@@ -7,13 +8,67 @@ import { MenuContext } from "../menuContext";
 import SEO from "../seo";
 import { LeftCaret, RightCaret } from "./carets";
 
-// stylesheet
-import classNames from "classnames";
-import styles from "./about.module.css";
-
 const navigationItems = ["Home", "About", "Contact"];
 
 // Todo: remove default exports everywhere
+const Container = styled.div`
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  a {
+    color: white;
+  }
+`;
+const ContainerBracketLeft = styled.div`
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  margin-right: 1rem;
+  a {
+    color: white;
+  }
+  @media (max-width: 48rem) {
+    margin-right: 0.2rem;
+  }
+`;
+const VerticalContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 18rem;
+  p {
+    font-size: 13pt;
+    font-weight: 400;
+    @media (max-width: 48rem) {
+      font-size: 11pt;
+    }
+  }
+  @media (max-width: 48rem) {
+    width: auto;
+    max-width: 14rem;
+  }
+`;
+const Item = styled.div`
+  flex: 0 0 auto;
+`;
+const ItemAnchorTag = styled.a`
+  flex: 0 0 auto;
+`;
+const ItemBracketRight = styled.div`
+  flex: 0 0 auto;
+  margin-left: 1rem;
+  @media (max-width: 48rem) {
+    margin-left: 0.2rem;
+  }
+`;
+const Brackets = styled.span`
+  font-size: 7rem;
+  @media (max-width: 48rem) {
+    font-size: 6rem;
+  }
+`;
 
 export function About() {
   const { activeMenu, setActiveMenu } = useContext(MenuContext);
@@ -46,18 +101,17 @@ export function About() {
   };
 
   return (
-    <div className={styles.container}>
+    <Container>
       <SEO title="About" />
 
       {/* left bracket */}
-      <div className={styles.item}>
-        <div className={classNames(styles.container, styles.bracketLeft)}>
-          <div className={styles.item}>
-            <span className={styles.brackets}>{"["}</span>
-          </div>
+      <Item>
+        <ContainerBracketLeft>
+          <Item>
+            <Brackets>{"["}</Brackets>
+          </Item>
 
-          <a
-            className={styles.item}
+          <ItemAnchorTag
             href="#Prev"
             onClick={(e) => {
               e.preventDefault();
@@ -65,25 +119,24 @@ export function About() {
             }}
           >
             <LeftCaret />
-          </a>
-        </div>
-      </div>
+          </ItemAnchorTag>
+        </ContainerBracketLeft>
+      </Item>
 
-      <div className={styles.item}>
-        <div className={styles.verticalContainer}>
+      <Item>
+        <VerticalContainer>
           <p>
             I'm a fullstack software engineer from Nairobi, Kenya. I design,
             code, and tinker with things. I speak React, Node.js, and Golang. I
             love to write, run and trail.
           </p>
-        </div>
-      </div>
+        </VerticalContainer>
+      </Item>
 
       {/* right bracket */}
-      <div className={classNames(styles.item, styles.bracketRight)}>
-        <div className={styles.container}>
-          <a
-            className={styles.item}
+      <ItemBracketRight>
+        <Container>
+          <ItemAnchorTag
             href="#Next"
             onClick={(e) => {
               e.preventDefault();
@@ -91,12 +144,12 @@ export function About() {
             }}
           >
             <RightCaret />
-          </a>
-          <div className={styles.item}>
-            <span className={styles.brackets}>{"]"}</span>
-          </div>
-        </div>
-      </div>
-    </div>
+          </ItemAnchorTag>
+          <Item>
+            <Brackets>{"]"}</Brackets>
+          </Item>
+        </Container>
+      </ItemBracketRight>
+    </Container>
   );
 }
