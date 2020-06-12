@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import styled from "styled-components";
 
 // context provider
 import { MenuContext } from "../menuContext";
@@ -17,13 +18,108 @@ import ReactTooltip from "react-tooltip";
 // copy to clipboard
 import { CopyToClipboard } from "react-copy-to-clipboard";
 
-// stylesheet
-import classNames from "classnames";
-import styles from "./contact.module.css";
-
 const navigationItems = ["Home", "About", "Contact"];
 
-// Todo: remove default exports everywhere
+// Todo: remove default exports everywhere, extract bracket left and right to own containers
+
+const Container = styled.div`
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  a {
+    color: white;
+    text-decoration: none;
+  }
+`;
+const ContainerBracketLeft = styled.div`
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  margin-right: 1rem;
+  @media (max-width: 48rem) {
+    margin-right: 0.5rem;
+  }
+`;
+const VerticalContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 18rem;
+  p {
+    font-size: 13pt;
+    font-weight: 400;
+    @media (max-width: 48rem) {
+      font-size: 10pt;
+    }
+  }
+  @media (max-width: 48rem) {
+    width: 15rem;
+  }
+`;
+const LinkHeader = styled.span`
+  margin-bottom: 0.3rem;
+  font-size: 14pt;
+  font-weight: bolder;
+  @media (max-width: 48rem) {
+    font-size: 11pt;
+  }
+`;
+const LinkSize = styled.span`
+  font-size: 13pt;
+  @media (max-width: 48rem) {
+    font-size: 10pt;
+  }
+`;
+const LinkContainer = styled.div`
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  margin-bottom: 0.4rem;
+`;
+const LinkContainerNoLinkOutlinePointer = styled.div`
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  margin-bottom: 0.4rem;
+  outline: none;
+  cursor: pointer;
+`;
+const Item = styled.div`
+  flex: 0 0 auto;
+`;
+const ItemAnchor = styled.a`
+  flex: 0 0 auto;
+`;
+const ItemSomeMargin = styled.a`
+  flex: 0 0 auto;
+  margin-left: 0.5rem;
+  @media (max-width: 48rem) {
+    margin-left: 0.4rem;
+  }
+`;
+const ItemBracketRight = styled.div`
+  flex: 0 0 auto;
+  margin-left: 1rem;
+  @media (max-width: 48rem) {
+    margin-left: 0;
+  }
+`;
+const Brackets = styled.span`
+  font-size: 7rem;
+  @media (max-width: 48rem) {
+    font-size: 6rem;
+  }
+`;
+const ToolTip = styled(ReactTooltip)`
+  font-size: 10pt;
+  max-width: 12rem;
+`;
+const IconSize = styled(FontAwesomeIcon)`
+  width: 1.063rem;
+  height: 1.063rem;
+`;
 
 export function Contact() {
   const { activeMenu, setActiveMenu } = useContext(MenuContext);
@@ -57,18 +153,17 @@ export function Contact() {
   };
 
   return (
-    <div className={styles.container}>
+    <Container>
       <SEO title="Contact" />
 
       {/* left bracket */}
-      <div className={styles.item}>
-        <div className={classNames(styles.container, styles.bracketLeft)}>
-          <div className={styles.item}>
-            <span className={styles.brackets}>{"("}</span>
-          </div>
+      <Item>
+        <ContainerBracketLeft>
+          <Item>
+            <Brackets>{"("}</Brackets>
+          </Item>
 
-          <a
-            className={styles.item}
+          <ItemAnchor
             href="#Prev"
             onClick={(e) => {
               e.preventDefault();
@@ -76,24 +171,19 @@ export function Contact() {
             }}
           >
             <LeftCaret />
-          </a>
-        </div>
-      </div>
-      <div className={styles.item}>
-        <div className={styles.verticalContainer}>
-          <span className={styles.linkHeader}>Get in touch via</span>
+          </ItemAnchor>
+        </ContainerBracketLeft>
+      </Item>
+      <Item>
+        <VerticalContainer>
+          <LinkHeader>Get in touch via</LinkHeader>
 
           <CopyToClipboard
             text="hello@muguku.co.ke"
             // change tooltip text if copy successful
             onCopy={(result) => setCopiedToClipBoard(result)}
           >
-            <div
-              className={classNames(
-                styles.linkContainer,
-                styles.noLinkOutline,
-                styles.pointer
-              )}
+            <LinkContainerNoLinkOutlinePointer
               data-for="getContent"
               data-tip
               onMouseLeave={() => {
@@ -102,51 +192,40 @@ export function Contact() {
               role="button"
               tabIndex="0"
             >
-              <div className={styles.item}>
-                <FontAwesomeIcon
-                  icon={faEnvelope}
-                  className={styles.iconSize}
-                />
-              </div>
-              <div className={classNames(styles.item, styles.someMargin)}>
-                <span className={styles.linkSize}>hello@muguku.co.ke</span>
-              </div>
-            </div>
+              <Item>
+                <IconSize icon={faEnvelope} />
+              </Item>
+              <ItemSomeMargin>
+                <LinkSize>hello@muguku.co.ke</LinkSize>
+              </ItemSomeMargin>
+            </LinkContainerNoLinkOutlinePointer>
           </CopyToClipboard>
-          <div className={styles.linkContainer}>
-            <div className={styles.item}>
+          <LinkContainer>
+            <Item>
               <a
-                className={styles.linkColor}
                 href="https://www.linkedin.com/in/machariamuguku/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <FontAwesomeIcon
-                  icon={faLinkedinIn}
-                  className={styles.iconSize}
-                />
+                <IconSize icon={faLinkedinIn} />
               </a>
-            </div>
-            <div className={classNames(styles.item, styles.someMargin)}>
+            </Item>
+            <ItemSomeMargin>
               <a
-                className={styles.linkColor}
                 href="https://www.linkedin.com/in/machariamuguku/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <span className={styles.linkSize}>
-                  linkedin.com/in/machariamuguku
-                </span>
+                <LinkSize>linkedin.com/in/machariamuguku</LinkSize>
               </a>
-            </div>
-          </div>
-        </div>
-      </div>
+            </ItemSomeMargin>
+          </LinkContainer>
+        </VerticalContainer>
+      </Item>
       {/* right bracket */}
-      <div className={classNames(styles.item, styles.bracketRight)}>
-        <div className={styles.container}>
-          <a
-            className={styles.item}
+      <ItemBracketRight>
+        <Container>
+          <ItemAnchor
             href="#Next"
             onClick={(e) => {
               e.preventDefault();
@@ -154,19 +233,18 @@ export function Contact() {
             }}
           >
             <RightCaret />
-          </a>
-          <div className={styles.item}>
-            <span className={styles.brackets}>{")"}</span>
-          </div>
-        </div>
-      </div>
+          </ItemAnchor>
+          <Item>
+            <Brackets>{")"}</Brackets>
+          </Item>
+        </Container>
+      </ItemBracketRight>
       {/* the universal react tooltip. Style tooltip here */}
-      <ReactTooltip
+      <ToolTip
         place="bottom"
         type="light"
         textColor="black"
         backgroundColor={"white"}
-        className={styles.tooltip}
         id="getContent"
         getContent={() =>
           copiedToClipBoard
@@ -174,6 +252,6 @@ export function Contact() {
             : "Click here to copy my email address to your clipboard 😀"
         }
       />
-    </div>
+    </Container>
   );
 }
