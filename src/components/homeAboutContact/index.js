@@ -20,7 +20,7 @@ const Container = styled.div`
 export default function HomeAboutContact() {
   const { activeMenu } = useContext(MenuContext);
   return (
-    <Container className={styles.container}>
+    <Container>
       {activeMenu === "Home" && <Home />}
       {activeMenu === "About" && <About />}
       {activeMenu === "Contact" && <Contact />}
