@@ -18,17 +18,16 @@ const Container = styled.div`
   display: flex;
   flex-wrap: nowrap;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
+  height: 40vh;
+  justify-content: space-between;
   color: white;
   @media (max-width: 48rem) {
     flex-direction: row;
+    height: auto;
+    width: 60vw;
   }
 `;
 const Item = styled.div`
-  flex: 0 0 auto;
-  margin-bottom: 3rem;
   :last-child {
     margin-bottom: 0;
     @media (max-width: 48rem) {
