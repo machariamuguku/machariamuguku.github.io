@@ -15,20 +15,35 @@ const VerticalContainer = styled.div`
   justify-items: center;
   justify-content: center;
 `;
-const Container = styled.div`
-  margin-top: 7rem;
+const GuardianContainer = styled.div`
   display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+  width: 90vw;
+  height: 65vh;
+  @media (max-width: 48rem) {
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    height: 50vh;
+  }
+`;
+const Container = styled.div`
+  height: 50vh;
+  width: 50vw;
+  display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1rem;
   @media (max-width: 48rem) {
-    margin-top: 2rem;
+    flex-direction: column;
+    height: fit-content;
+    width: inherit;
   }
 `;
 const SocialLinksStl = styled.div`
-  margin-top: 2rem;
   position: absolute;
   right: 10rem;
   @media (max-width: 48rem) {
@@ -57,12 +72,14 @@ const ArticlesStl = styled.div`
 export const LandingPageLayout = () => {
   return (
     <VerticalContainer>
-      <Container>
-        <HomeAboutContact />
-        <SocialLinksStl>
-          <SocialLinks />
-        </SocialLinksStl>
-      </Container>
+      <GuardianContainer>
+        <Container>
+          <HomeAboutContact />
+          <SocialLinksStl>
+            <SocialLinks />
+          </SocialLinksStl>
+        </Container>
+      </GuardianContainer>
       <CaretDown />
       <ProjectsStl>
         <Projects />
