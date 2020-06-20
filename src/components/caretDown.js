@@ -7,8 +7,6 @@ import styled, { keyframes } from "styled-components";
 
 const CaretDownStl = styled.div`
   height: 6rem;
-  margin-top: 3rem;
-  margin-bottom: 2rem;
   cursor: pointer;
   display: flex;
 `;
@@ -25,7 +23,10 @@ const BlinkAnimation = keyframes`
   }
 `;
 const AnimateCaretDown = styled.div`
-  padding: 1rem 2rem 2rem 2rem;
+  padding-top: 1rem;
+  padding-right: 2rem;
+  padding-bottom: 2rem;
+  padding-left: 2rem;
   display: flex;
   flex-direction: column;
   -webkit-animation: ${BlinkAnimation} 1400ms ease-in-out infinite;
@@ -34,10 +35,6 @@ const AnimateCaretDown = styled.div`
   -o-animation: ${BlinkAnimation} 1400ms ease-in-out infinite;
   animation: ${BlinkAnimation} 1400ms ease-in-out infinite;
   outline: none;
-  @media (max-width: 48rem) {
-    margin-top: 0;
-    padding: 2rem;
-  }
 `;
 const GoingDown = styled(FontAwesomeIcon)`
   font-size: 1.2rem;
