@@ -6,30 +6,41 @@ import styled from "styled-components";
 const MainContainer = styled.div`
   color: white;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
   background-color: #0f1113;
-  padding-bottom: 2rem;
 `;
 const Container = styled.div`
-  color: white;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
+  @media (max-width: 48rem) {
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+`;
+const Header = styled.h3`
+  font-size: 18pt;
 `;
 const Item = styled.a`
   display: flex;
   flex-direction: column;
-  flex: 0 0 auto;
+  flex-wrap: nowrap;
   margin: 1rem;
-  width: 20rem;
-  height: 10rem;
   padding: 1rem;
+  width: 25vw;
+  height: 10rem;
   background-color: #000;
   color: white;
   text-decoration: none;
+  @media (max-width: 48rem) {
+    width: 87vw;
+    margin-left: 0;
+    margin-right: 0;
+  }
 `;
 const DownContainer = styled.div`
   margin-top: auto;
@@ -44,10 +55,6 @@ const Description = styled.span`
 const DownContainerItem = styled.div`
   flex: 1;
   font-size: 10pt;
-`;
-const Header = styled.h3`
-  font-size: 12pt;
-  padding-top: 0.5rem;
 `;
 const NodeColor = styled.span`
   color: ${(props) => props.color || "white"};
