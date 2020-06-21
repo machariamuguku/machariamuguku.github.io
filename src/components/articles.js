@@ -7,30 +7,45 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarTimes, faClock } from "@fortawesome/free-solid-svg-icons";
 
 // styles
-const Container = styled.div`
+const MainContainer = styled.div`
+  color: white;
   display: flex;
   flex-direction: column;
-  max-width: 95vw;
-  color: white;
+  flex-wrap: wrap;
+  justify-content: center;
   margin-bottom: 4rem;
-  text-align: center;
 `;
-const HorizontalContainer = styled.div`
+const Container = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  text-align: center;
+  justify-content: center;
+  align-items: center;
+  @media (max-width: 48rem) {
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
 `;
-const Item = styled.div`
+const Header = styled.h3`
+  font-size: 18pt;
+`;
+const Item = styled.a`
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
-  margin: 2rem;
-  width: 320px;
-  height: 265px;
+  margin: 1rem;
+  width: 26vw;
+  height: 16.563rem;
   background-color: #0f1113;
+  color: white;
+  text-decoration: none;
   img {
     height: 150px;
+  }
+  @media (max-width: 48rem) {
+    width: 94vw;
+    margin-left: 0;
+    margin-right: 0;
   }
 `;
 const BottomContainer = styled.div`
@@ -44,10 +59,6 @@ const BottomContainer = styled.div`
     font-size: 10pt;
     font-weight: 600;
   }
-`;
-const LinkColor = styled.a`
-  color: white;
-  text-decoration: none;
 `;
 
 export function Articles() {
@@ -78,47 +89,48 @@ export function Articles() {
     `
   );
   return (
-    <Container>
-      <h3>Latest Articles</h3>
-      <HorizontalContainer>
+    <MainContainer>
+      <Container>
+        <Header>Latest Articles</Header>
+      </Container>
+
+      <Container>
         {data.allMediumPost.edges.map((edge) => (
-          <LinkColor
+          <Item
             href={`https://medium.com/@iMash/${edge.node.uniqueSlug}?source=muguku.co.ke`}
             target="_blank"
             rel="noopener noreferrer"
             key={edge.node.id}
           >
-            <Item>
-              <img
-                src={
-                  edge.node.virtuals.previewImage.imageId.length > 0
-                    ? `https://miro.medium.com/max/600/${edge.node.virtuals.previewImage.imageId}`
-                    : "https://miro.medium.com/max/600/1*gXNxIUk4dxql1L7tkjtXYg.png"
-                }
-                alt="medium article previewImage"
-              />
-              <h5>{edge.node.title}</h5>
-              <BottomContainer>
-                <div>
-                  <FontAwesomeIcon icon={faCalendarTimes} size="sm" />
-                  &nbsp;
-                  <span>{edge.node.createdAt}</span>
-                </div>
-                <div>
-                  <FontAwesomeIcon icon={faClock} size="sm" />
-                  &nbsp;
-                  <span>
-                    {edge.node.virtuals.readingTime.toLocaleString("en-KE", {
-                      maximumFractionDigits: 0
-                    })}{" "}
-                    mins
-                  </span>
-                </div>
-              </BottomContainer>
-            </Item>
-          </LinkColor>
+            <img
+              src={
+                edge.node.virtuals.previewImage.imageId.length > 0
+                  ? `https://miro.medium.com/max/600/${edge.node.virtuals.previewImage.imageId}`
+                  : "https://miro.medium.com/max/600/1*gXNxIUk4dxql1L7tkjtXYg.png"
+              }
+              alt="medium article previewImage"
+            />
+            <h5>{edge.node.title}</h5>
+            <BottomContainer>
+              <div>
+                <FontAwesomeIcon icon={faCalendarTimes} size="sm" />
+                &nbsp;
+                <span>{edge.node.createdAt}</span>
+              </div>
+              <div>
+                <FontAwesomeIcon icon={faClock} size="sm" />
+                &nbsp;
+                <span>
+                  {edge.node.virtuals.readingTime.toLocaleString("en-KE", {
+                    maximumFractionDigits: 0
+                  })}{" "}
+                  mins
+                </span>
+              </div>
+            </BottomContainer>
+          </Item>
         ))}
-      </HorizontalContainer>
-    </Container>
+      </Container>
+    </MainContainer>
   );
 }
