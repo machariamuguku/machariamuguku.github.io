@@ -23,11 +23,25 @@ const introductionSummary = ["ENGINEER", "DEVELOPER", "MINIMALIST"];
 
 const Container = styled.div`
   display: flex;
+  flex-direction: row;
   flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
   a {
     color: white;
+  }
+`;
+const IntroContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  a {
+    color: white;
+  }
+  @media (max-width: 48rem) {
+    margin-left: 0.7rem;
   }
 `;
 const ContainerBracketLeft = styled.div`
@@ -46,7 +60,7 @@ const VerticalContainer = styled.div`
   text-align: center;
   width: 18rem;
   @media (max-width: 48rem) {
-    width: auto;
+    width: 15rem;
   }
 `;
 const Item = styled.div`
@@ -75,7 +89,6 @@ const Salutation = styled.span`
     font-size: 14pt;
   }
 `;
-
 const BlinkAnimation = keyframes`
   from,
   to {
@@ -87,16 +100,18 @@ const BlinkAnimation = keyframes`
 `;
 const Introduction = styled.span`
   flex: 0 0 auto;
+  align-self: flex-end;
+
   &:first-child {
     font-size: 20pt;
     font-weight: bold;
     margin-right: 0.4rem;
     @media (max-width: 48rem) {
-      font-size: 13pt;
+      font-size: 15pt;
     }
   }
   &:nth-child(2) {
-    font-size: 17pt;
+    font-size: 16pt;
     font-weight: lighter;
     font-style: italic;
     @media (max-width: 48rem) {
@@ -111,6 +126,9 @@ const Introduction = styled.span`
     -ms-animation: ${BlinkAnimation} 1s step-end infinite;
     -o-animation: ${BlinkAnimation} 1s step-end infinite;
     animation: ${BlinkAnimation} 1s step-end infinite;
+    @media (max-width: 48rem) {
+      font-size: 12pt;
+    }
   }
 `;
 const Dot = styled.span`
@@ -180,11 +198,11 @@ export default function Home() {
       <Item>
         <VerticalContainer>
           <Salutation>Hello!</Salutation>
-          <Container>
+          <IntroContainer>
             <Introduction>I'm</Introduction>
             <Introduction>{introduction}</Introduction>
             <Introduction>|</Introduction>
-          </Container>
+          </IntroContainer>
         </VerticalContainer>
         <Container>
           <Summary>

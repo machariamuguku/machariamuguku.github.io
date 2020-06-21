@@ -24,7 +24,7 @@ const Container = styled.div`
   @media (max-width: 48rem) {
     flex-direction: row;
     height: auto;
-    width: 60vw;
+    width: 75vw;
   }
 `;
 const Item = styled.div`

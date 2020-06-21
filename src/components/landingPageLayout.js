@@ -20,13 +20,13 @@ const GuardianContainer = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: flex-end;
-  width: 90vw;
+  width: 95vw;
   height: 65vh;
   @media (max-width: 48rem) {
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
-    height: 50vh;
+    height: 52vh;
   }
 `;
 const Container = styled.div`
@@ -47,7 +47,7 @@ const SocialLinksStl = styled.div`
   position: absolute;
   right: 10rem;
   @media (max-width: 48rem) {
-    margin-top: 2rem;
+    margin-top: 3rem;
     position: relative;
     right: auto;
   }

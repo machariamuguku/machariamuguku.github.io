@@ -46,8 +46,7 @@ const VerticalContainer = styled.div`
     }
   }
   @media (max-width: 48rem) {
-    width: auto;
-    max-width: 14rem;
+    width: 15rem;
   }
 `;
 const Item = styled.div`

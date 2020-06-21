@@ -47,13 +47,6 @@ const VerticalContainer = styled.div`
   flex-direction: column;
   text-align: center;
   width: 18rem;
-  p {
-    font-size: 13pt;
-    font-weight: 400;
-    @media (max-width: 48rem) {
-      font-size: 10pt;
-    }
-  }
   @media (max-width: 48rem) {
     width: 15rem;
   }
@@ -69,7 +62,7 @@ const LinkHeader = styled.span`
 const LinkSize = styled.span`
   font-size: 13pt;
   @media (max-width: 48rem) {
-    font-size: 10pt;
+    font-size: 10.5pt;
   }
 `;
 const LinkContainer = styled.div`
