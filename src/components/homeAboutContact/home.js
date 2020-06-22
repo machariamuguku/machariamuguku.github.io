@@ -37,11 +37,12 @@ const IntroContainer = styled.div`
   flex-wrap: nowrap;
   justify-content: flex-start;
   align-items: center;
+  margin-left: 0.7rem;
   a {
     color: white;
   }
   @media (max-width: 48rem) {
-    margin-left: 0.7rem;
+    margin-left: 1.2rem;
   }
 `;
 const ContainerBracketLeft = styled.div`
@@ -115,7 +116,7 @@ const Introduction = styled.span`
     font-weight: lighter;
     font-style: italic;
     @media (max-width: 48rem) {
-      font-size: 11pt;
+      font-size: 12pt;
     }
   }
   &:nth-child(3) {
