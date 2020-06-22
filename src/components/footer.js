@@ -7,8 +7,6 @@ const FooterStl = styled.footer`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  position: fixed;
-  bottom: 0;
   height: 70px;
   width: 100%;
   background-color: #1a1a1a;
@@ -40,13 +38,13 @@ const LinkColor = styled.a`
 const MarginBottom = styled.div`
   @media (max-width: 48rem) {
     border-bottom-color: #808b97;
-    border-bottom-style: dashed;
+    border-bottom-style: solid;
     border-bottom-width: 1px;
     padding-bottom: 0.3rem;
   }
 `;
 
-export default function Footer({ siteOwner }) {
+export function Footer({ siteOwner }) {
   return (
     <FooterStl>
       <MarginBottom>

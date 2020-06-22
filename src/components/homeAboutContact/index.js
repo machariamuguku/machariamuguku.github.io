@@ -17,7 +17,7 @@ const Container = styled.div`
   color: white;
 `;
 
-export default function HomeAboutContact() {
+export function HomeAboutContact() {
   const { activeMenu } = useContext(MenuContext);
   return (
     <Container>

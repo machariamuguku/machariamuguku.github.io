@@ -14,7 +14,7 @@ import styles from "./header.module.css";
 const homeTabs = ["Home", "About", "Projects", "Articles", "Contact"];
 
 // header component
-const Header = ({ siteTitle = "" }) => {
+export const Header = ({ siteTitle = "" }) => {
   // context consumer
   const { activeMenu, setActiveMenu } = useContext(MenuContext);
 
@@ -149,5 +149,3 @@ PageLink.propTypes = {
   activeMenu: PropTypes.string,
   switchTabs: PropTypes.func
 };
-
-export default Header;
