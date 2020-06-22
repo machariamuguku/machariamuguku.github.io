@@ -3,11 +3,12 @@ import { graphql, useStaticQuery } from "gatsby";
 import BackgroundImage from "gatsby-background-image";
 import styled from "styled-components";
 
-const FullBackground = styled(BackgroundImage)`
-  height: 92vh;
-  background-size: auto 90vh;
+const StyledWrapper = styled.div`
+  width: 100%;
+  height: 100%;
 `;
-const ArtDirectedFullBackground = ({ children }) => {
+
+export const ArtDirectedImage = ({ children, BgSize }) => {
   const { desktop, medium, small } = useStaticQuery(
     graphql`
       query {
@@ -50,18 +51,19 @@ const ArtDirectedFullBackground = ({ children }) => {
   ];
 
   return (
-    <FullBackground
-      Tag="section"
-      fluid={backgroundArtDirectionStack}
-      backgroundColor="#000000"
-      id="adfullscreenbg"
-      role="img"
-      aria-label="Macharia Muguku"
-      preserveStackingContext={true}
-    >
-      {children}
-    </FullBackground>
+    <StyledWrapper>
+      <BackgroundImage
+        style={{ backgroundSize: BgSize }}
+        Tag="section"
+        fluid={backgroundArtDirectionStack}
+        backgroundColor="#000000"
+        id="adfullscreenbg"
+        role="img"
+        aria-label="Macharia Muguku"
+        preserveStackingContext={true}
+      >
+        {children}
+      </BackgroundImage>
+    </StyledWrapper>
   );
 };
-
-export default ArtDirectedFullBackground;
