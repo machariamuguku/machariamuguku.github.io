@@ -38,6 +38,7 @@ const VerticalContainer = styled.div`
   flex-direction: column;
   text-align: center;
   width: 18rem;
+  margin-top: 1rem;
   p {
     font-size: 13pt;
     font-weight: 400;
