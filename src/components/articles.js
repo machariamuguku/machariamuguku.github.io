@@ -13,7 +13,6 @@ const MainContainer = styled.div`
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
-  margin-bottom: 4rem;
 `;
 const Container = styled.div`
   display: flex;
@@ -26,8 +25,8 @@ const Container = styled.div`
     flex-wrap: nowrap;
   }
 `;
-const Header = styled.h3`
-  font-size: 18pt;
+const Header = styled.h1`
+  font-size: 16pt;
 `;
 const Item = styled.a`
   display: flex;
