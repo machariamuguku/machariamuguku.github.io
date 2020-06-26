@@ -7,6 +7,8 @@
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-between;
+  background-color: black;
+  letter-spacing: 0.031rem;
 }
 .hideHeader {
   top: -5rem;
@@ -15,11 +17,9 @@
 .container .item:first-child {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   width: 40vw;
-  padding-top: 1.7rem;
+  padding-top: 1.2rem;
   padding-bottom: 1rem;
-  background-color: black;
 }
 .linkText {
   color: white;
@@ -34,14 +34,12 @@
 .container .item:last-child {
   display: flex;
   flex-direction: row;
+  width: 60vw;
+  padding-top: 1.4rem;
+  padding-bottom: 1rem;
   flex-wrap: wrap;
   justify-content: space-evenly;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  letter-spacing: 0.031rem;
-  width: 60vw;
-  padding-top: 1.7rem;
-  padding-bottom: 1rem;
-  background-color: black;
 }
 .container .item:last-child .linkText {
   font-size: 1.2rem;
