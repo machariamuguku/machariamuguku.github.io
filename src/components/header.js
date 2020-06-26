@@ -11,7 +11,8 @@ import { useMediaQuery } from "./customHooks/useMediaQuery";
 // stylesheet
 import styles from "./header.module.css";
 
-const homeTabs = ["Home", "About", "Projects", "Articles", "Contact"];
+const allTabs = ["Home", "About", "Projects", "Articles", "Contact"];
+const homeTabs = ["Home", "About", "Contact"];
 
 // header component
 export const Header = ({ siteTitle = "" }) => {
@@ -58,7 +59,7 @@ export const Header = ({ siteTitle = "" }) => {
             className={styles.linkText}
             to="/"
             onClick={() => {
-              switchTabs(homeTabs[0]);
+              switchTabs(allTabs[0]);
             }}
           >
             {siteTitle}
@@ -89,7 +90,7 @@ export const Header = ({ siteTitle = "" }) => {
               item && (
                 <animated.div key={key} style={props} className={styles.item}>
                   {/* page links */}
-                  {homeTabs.map((Tab, index) => (
+                  {allTabs.map((Tab, index) => (
                     <PageLink
                       key={index}
                       theComponent={Tab}
@@ -104,7 +105,7 @@ export const Header = ({ siteTitle = "" }) => {
       ) : (
         <div className={styles.item}>
           {/* page links */}
-          {homeTabs.map((Tab, index) => (
+          {allTabs.map((Tab, index) => (
             <PageLink
               key={index}
               theComponent={Tab}
@@ -130,7 +131,14 @@ const PageLink = ({
     }`}
     href={`#${theComponent}`}
     onClick={() => {
-      switchTabs(theComponent);
+      // if Tab is a primary Tab
+      if (homeTabs.includes(theComponent)) {
+        // todo: change focussed component here (useref)
+        // then switch tabs
+        switchTabs(theComponent);
+        return;
+      }
+      // else change focussed component
     }}
   >
     {theComponent}
