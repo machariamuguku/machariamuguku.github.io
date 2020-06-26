@@ -70,7 +70,7 @@ const Item = styled.div`
 const ItemAnchor = styled.a`
   flex: 0 0 auto;
 `;
-const ItemBracketRight = styled.a`
+const ItemBracketRight = styled.div`
   flex: 0 0 auto;
   margin-left: 1rem;
   @media (max-width: 48rem) {
