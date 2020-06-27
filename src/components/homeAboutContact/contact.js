@@ -85,7 +85,7 @@ const Item = styled.div`
 const ItemAnchor = styled.a`
   flex: 0 0 auto;
 `;
-const ItemSomeMargin = styled.a`
+const ItemSomeMargin = styled.div`
   flex: 0 0 auto;
   margin-left: 0.5rem;
   @media (max-width: 48rem) {
