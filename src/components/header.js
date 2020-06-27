@@ -15,7 +15,16 @@ const allTabs = ["Home", "About", "Projects", "Articles", "Contact"];
 const homeTabs = ["Home", "About", "Contact"];
 
 // header component
-export const Header = ({ siteTitle = "" }) => {
+export const Header = ({
+  siteTitle = "",
+  scrollToTop = () => {},
+  scrollToPosition = () => {},
+  homeRef,
+  aboutRef,
+  contactRef,
+  projectsRef,
+  articlesRef
+}) => {
   // context consumer
   const { activeMenu, setActiveMenu } = useContext(MenuContext);
 
@@ -59,6 +68,7 @@ export const Header = ({ siteTitle = "" }) => {
             className={styles.linkText}
             to="/"
             onClick={() => {
+              scrollToTop();
               switchTabs(allTabs[0]);
             }}
           >
@@ -96,6 +106,10 @@ export const Header = ({ siteTitle = "" }) => {
                       theComponent={Tab}
                       activeMenu={activeMenu}
                       switchTabs={switchTabs}
+                      scrollToTop={scrollToTop}
+                      scrollToPosition={scrollToPosition}
+                      setToggleMobileNav={setToggleMobileNav}
+                      reference={eval(`${Tab.toLowerCase()}Ref`)}
                     />
                   ))}
                 </animated.div>
@@ -111,6 +125,10 @@ export const Header = ({ siteTitle = "" }) => {
               theComponent={Tab}
               activeMenu={activeMenu}
               switchTabs={switchTabs}
+              scrollToTop={scrollToTop}
+              scrollToPosition={scrollToPosition}
+              setToggleMobileNav={setToggleMobileNav}
+              reference={eval(`${Tab.toLowerCase()}Ref`)}
             />
           ))}
         </div>
@@ -123,7 +141,11 @@ export const Header = ({ siteTitle = "" }) => {
 const PageLink = ({
   theComponent = "",
   activeMenu = "",
-  switchTabs = () => {}
+  switchTabs = () => {},
+  scrollToTop = () => {},
+  scrollToPosition = () => {},
+  setToggleMobileNav = () => {},
+  reference
 }) => (
   <a
     className={`${styles.linkText} ${
@@ -131,14 +153,19 @@ const PageLink = ({
     }`}
     href={`#${theComponent}`}
     onClick={() => {
-      // if Tab is a primary Tab
+      // if Tab is a primary Tab (Home-About-Contact)
       if (homeTabs.includes(theComponent)) {
-        // todo: change focussed component here (useref)
-        // then switch tabs
+        // scroll to home component (very top)
+        scrollToTop();
+        // switch tabs
         switchTabs(theComponent);
         return;
       }
-      // else change focussed component
+      // scroll to the component
+      scrollToPosition(reference);
+      // toggle mobile navigation off
+      setToggleMobileNav(false);
+      return;
     }}
   >
     {theComponent}

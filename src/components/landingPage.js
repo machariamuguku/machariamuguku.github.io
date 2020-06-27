@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useStaticQuery, graphql } from "gatsby";
+import { useSpring, config } from "react-spring";
 import styled from "styled-components";
 
 import { useMediaQuery } from "./customHooks/useMediaQuery";
@@ -71,6 +72,66 @@ const ArticlesStl = styled.div`
 `;
 
 export const LandingPage = () => {
+  // refs for different sections
+  const projectsRef = useRef(null);
+  const articlesRef = useRef(null);
+
+  // react spring scroll animation
+  const [, setAnimation] = useSpring(() => ({
+    immediate: false,
+    config: config.slow,
+    y: 0
+  }));
+
+  // override the scroll animation when user scrolls themselves
+  let isStopped = false;
+  const onWheel = () => {
+    isStopped = true;
+    window.removeEventListener("wheel", onWheel);
+  };
+
+  // scroll to element
+  const scrollToPosition = (ref) => {
+    // add event listener for incase user scrolls themselves
+    window.addEventListener("wheel", onWheel);
+
+    setAnimation({
+      y: window.scrollY + ref.current.getBoundingClientRect().top,
+      reset: true,
+      from: { y: window.scrollY },
+      onRest: () => {
+        isStopped = false;
+        window.removeEventListener("wheel", onWheel);
+      },
+      onFrame: (props) => {
+        if (!isStopped) {
+          window.scroll(0, props.y);
+        }
+      }
+    });
+  };
+
+  // scroll to top
+  const scrollToTop = () => {
+    // add event listener for incase user scrolls themselves
+    window.addEventListener("wheel", onWheel);
+
+    setAnimation({
+      y: 0,
+      reset: true,
+      from: { y: window.scrollY },
+      onRest: () => {
+        isStopped = false;
+        window.removeEventListener("wheel", onWheel);
+      },
+      onFrame: (props) => {
+        if (!isStopped) {
+          window.scroll(0, props.y);
+        }
+      }
+    });
+  };
+
   // check if media is mobile
   const isMobileOrTablet = useMediaQuery("(max-width: 48rem)");
 
@@ -89,8 +150,13 @@ export const LandingPage = () => {
   `);
   return (
     <VerticalContainer>
-      <Header siteTitle={siteMetadata.title} />
-
+      <Header
+        siteTitle={siteMetadata.title}
+        scrollToTop={scrollToTop}
+        scrollToPosition={scrollToPosition}
+        projectsRef={projectsRef}
+        articlesRef={articlesRef}
+      />
       <ArtDirectedImage BgSize={isMobileOrTablet ? "cover" : "contain"}>
         <Container>
           <MainContent>
@@ -102,16 +168,19 @@ export const LandingPage = () => {
           </SocialLinksStl>
 
           <CaretDownStl>
-            <CaretDown />
+            <CaretDown
+              reference={projectsRef}
+              scrollToPosition={scrollToPosition}
+            />
           </CaretDownStl>
         </Container>
       </ArtDirectedImage>
 
-      <ProjectsStl>
+      <ProjectsStl ref={projectsRef}>
         <Projects />
       </ProjectsStl>
 
-      <ArticlesStl>
+      <ArticlesStl ref={articlesRef}>
         <Articles />
       </ArticlesStl>
 
