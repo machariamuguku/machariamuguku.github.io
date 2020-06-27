@@ -135,6 +135,7 @@
   }
   .container .item:first-child {
     width: 100vw;
+    justify-content: space-between;
   }
   .container .item:last-child {
     flex-direction: column;
