@@ -47,18 +47,12 @@ const GoingDown = styled(FontAwesomeIcon)`
   }
 `;
 
-export function CaretDown() {
+export function CaretDown({ reference, scrollToPosition = () => {} }) {
   return (
     <CaretDownStl>
       <AnimateCaretDown
-        onClick={() => {
-          console.log("go down implementation here");
-        }}
-        onKeyDown={(e) => {
-          if (e.keyCode === 13) {
-            console.log("go down implementation here");
-          }
-        }}
+        // scroll to element
+        onClick={() => scrollToPosition(reference)}
         role="button"
         tabIndex="0"
       >
