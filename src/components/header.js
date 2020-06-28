@@ -1,17 +1,20 @@
+// the following rule disables warning for use of eval() which is unsafe
+/* eslint no-eval: 0 */
 import React, { useState, useContext } from "react";
 import { Link } from "gatsby";
 import PropTypes from "prop-types";
 import { useTransition, animated } from "react-spring";
+
 // context provider
 import { MenuContext } from "./menuContext";
 
-import { useHideOnScrollDown } from "./customHooks/useHideOnScrollDown";
+// custom media query hook
 import { useMediaQuery } from "./customHooks/useMediaQuery";
 
 // stylesheet
 import styles from "./header.module.css";
 
-const allTabs = ["Home", "About", "Projects", "Articles", "Contact"];
+const allTabs = ["Home", "About", "Projects", "Blog", "Contact"];
 const homeTabs = ["Home", "About", "Contact"];
 
 // header component
@@ -23,23 +26,18 @@ export const Header = ({
   aboutRef,
   contactRef,
   projectsRef,
-  articlesRef
+  blogRef
 }) => {
   // context consumer
-  const { activeMenu, setActiveMenu } = useContext(MenuContext);
+  const { activeMenuAndComponent, dispatchActiveMenuAndComponent } = useContext(
+    MenuContext
+  );
 
   // internal state
   const [toggleMobileNav, setToggleMobileNav] = useState(false);
 
   // check if media is mobile
   const isMobileOrTablet = useMediaQuery("(max-width: 48rem)");
-
-  // track if scrolling downwards
-  const isScrollDownValid = useHideOnScrollDown({
-    minimumScrollDown: 50,
-    throttleTime: 250,
-    delayTime: 250
-  });
 
   // react-spring animation
   const transitions = useTransition(toggleMobileNav, null, {
@@ -50,17 +48,20 @@ export const Header = ({
   });
 
   // switch active tab and toggle menu off
-  const switchTabs = (TabName) => {
-    setActiveMenu(TabName);
+  const switchTabs = (DispatchType, TabName) => {
+    dispatchActiveMenuAndComponent({ type: DispatchType, payload: TabName });
     setToggleMobileNav(false);
+  };
+  // switch component
+  const dispatchComponent = (payload) => {
+    dispatchActiveMenuAndComponent({
+      type: "CHANGE_COMPONENT",
+      payload: payload
+    });
   };
 
   return (
-    <header
-      className={`${styles.container} ${
-        isScrollDownValid ? styles.hideHeader : ""
-      }`}
-    >
+    <header className={styles.container}>
       <div className={styles.item}>
         {/* logo */}
         <div>
@@ -69,7 +70,8 @@ export const Header = ({
             to="/"
             onClick={() => {
               scrollToTop();
-              switchTabs(allTabs[0]);
+              switchTabs("CHANGE_MENU", allTabs[0]);
+              dispatchComponent(allTabs[0]);
             }}
           >
             {siteTitle}
@@ -104,11 +106,12 @@ export const Header = ({
                     <PageLink
                       key={index}
                       theComponent={Tab}
-                      activeMenu={activeMenu}
+                      activeMenuAndComponent={activeMenuAndComponent}
                       switchTabs={switchTabs}
                       scrollToTop={scrollToTop}
                       scrollToPosition={scrollToPosition}
                       setToggleMobileNav={setToggleMobileNav}
+                      dispatchComponent={dispatchComponent}
                       reference={eval(`${Tab.toLowerCase()}Ref`)}
                     />
                   ))}
@@ -123,11 +126,12 @@ export const Header = ({
             <PageLink
               key={index}
               theComponent={Tab}
-              activeMenu={activeMenu}
+              activeMenuAndComponent={activeMenuAndComponent}
               switchTabs={switchTabs}
               scrollToTop={scrollToTop}
               scrollToPosition={scrollToPosition}
               setToggleMobileNav={setToggleMobileNav}
+              dispatchComponent={dispatchComponent}
               reference={eval(`${Tab.toLowerCase()}Ref`)}
             />
           ))}
@@ -140,16 +144,17 @@ export const Header = ({
 // single page link
 const PageLink = ({
   theComponent = "",
-  activeMenu = "",
+  activeMenuAndComponent = {},
   switchTabs = () => {},
   scrollToTop = () => {},
   scrollToPosition = () => {},
   setToggleMobileNav = () => {},
+  dispatchComponent = () => {},
   reference
 }) => (
   <a
     className={`${styles.linkText} ${
-      activeMenu === theComponent ? styles.activeLink : ""
+      activeMenuAndComponent.Menu === theComponent ? styles.activeLink : ""
     }`}
     href={`#${theComponent}`}
     onClick={() => {
@@ -157,12 +162,16 @@ const PageLink = ({
       if (homeTabs.includes(theComponent)) {
         // scroll to home component (very top)
         scrollToTop();
-        // switch tabs
-        switchTabs(theComponent);
+        // switch primary tabs
+        switchTabs("CHANGE_MENU", theComponent);
+        // also switch active tab
+        dispatchComponent(theComponent);
         return;
       }
       // scroll to the component
       scrollToPosition(reference);
+      // switch secondary tabs
+      switchTabs("CHANGE_MENU", theComponent);
       // toggle mobile navigation off
       setToggleMobileNav(false);
       return;
@@ -181,6 +190,6 @@ Header.propTypes = {
 // PageLink
 PageLink.propTypes = {
   theComponent: PropTypes.string,
-  activeMenu: PropTypes.string,
+  activeMenuAndComponent: PropTypes.object,
   switchTabs: PropTypes.func
 };
