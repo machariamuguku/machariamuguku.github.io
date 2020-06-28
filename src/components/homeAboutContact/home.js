@@ -1,16 +1,12 @@
-import React, { useContext } from "react";
+import React from "react";
 import styled, { keyframes } from "styled-components";
 
-// context provider
-import { MenuContext } from "../menuContext";
 // custom typeWriter hook
 import { useTypeWriter } from "../customHooks/useTypeWriter";
 
 // components
 import SEO from "../seo";
-import { LeftCaret, RightCaret } from "./carets";
-
-const navigationItems = ["Home", "About", "Contact"];
+import { Carets } from "./carets";
 
 const introductions = [
   "Macharia Muguku",
@@ -83,7 +79,7 @@ const Brackets = styled.span`
     font-size: 6rem;
   }
 `;
-const Salutation = styled.span`
+const LinkHeader = styled.span`
   font-size: 20pt;
   font-weight: bold;
   @media (max-width: 48rem) {
@@ -145,33 +141,7 @@ const Summary = styled.div`
 `;
 
 export default function Home() {
-  const { activeMenu, setActiveMenu } = useContext(MenuContext);
   const introduction = useTypeWriter(introductions);
-
-  const changeMenu = (direction) => {
-    const indexOfCurrentItem = navigationItems.indexOf(activeMenu);
-
-    // if direction is forward
-    if (direction === "Next") {
-      // set to index of next item
-      // if the next index is equal to the array length
-      // set to first index
-      if (indexOfCurrentItem + 1 === navigationItems.length) {
-        setActiveMenu(navigationItems[0]);
-        return;
-      }
-      setActiveMenu(navigationItems[indexOfCurrentItem + 1]);
-      return;
-    }
-    // set to index of previous item
-    // if the previous index is less than zero (first index)
-    // set to the biggest index
-    if (indexOfCurrentItem - 1 < 0) {
-      setActiveMenu(navigationItems[navigationItems.length - 1]);
-      return;
-    }
-    setActiveMenu(navigationItems[indexOfCurrentItem - 1]);
-  };
 
   return (
     <Container>
@@ -188,17 +158,16 @@ export default function Home() {
             href="#Prev"
             onClick={(e) => {
               e.preventDefault();
-              changeMenu("Prev");
             }}
           >
-            <LeftCaret />
+            <Carets direction="left" />
           </ItemAnchor>
         </ContainerBracketLeft>
       </Item>
 
       <Item>
         <VerticalContainer>
-          <Salutation>Hello!</Salutation>
+          <LinkHeader>Hello!</LinkHeader>
           <IntroContainer>
             <Introduction>I'm</Introduction>
             <Introduction>{introduction}</Introduction>
@@ -225,10 +194,9 @@ export default function Home() {
             href="#Next"
             onClick={(e) => {
               e.preventDefault();
-              changeMenu("Next");
             }}
           >
-            <RightCaret />
+            <Carets direction="right" />
           </ItemAnchor>
           <Item>
             <Brackets>{"}"}</Brackets>

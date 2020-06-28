@@ -1,12 +1,9 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-
-// context provider
-import { MenuContext } from "../menuContext";
 
 // components
 import SEO from "../seo";
-import { LeftCaret, RightCaret } from "./carets";
+import { Carets } from "./carets";
 
 // react font awesome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -17,8 +14,6 @@ import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
 import ReactTooltip from "react-tooltip";
 // copy to clipboard
 import { CopyToClipboard } from "react-copy-to-clipboard";
-
-const navigationItems = ["Home", "About", "Contact"];
 
 // Todo: remove default exports everywhere, extract bracket left and right to own containers
 
@@ -52,11 +47,10 @@ const VerticalContainer = styled.div`
   }
 `;
 const LinkHeader = styled.span`
-  margin-bottom: 0.3rem;
-  font-size: 14pt;
-  font-weight: bolder;
+  font-size: 20pt;
+  font-weight: bold;
   @media (max-width: 48rem) {
-    font-size: 11pt;
+    font-size: 14pt;
   }
 `;
 const LinkSize = styled.span`
@@ -115,35 +109,7 @@ const IconSize = styled(FontAwesomeIcon)`
 `;
 
 export function Contact() {
-  const { activeMenu, setActiveMenu } = useContext(MenuContext);
   const [copiedToClipBoard, setCopiedToClipBoard] = useState(false);
-
-  const changeMenu = (direction) => {
-    const indexOfCurrentItem = navigationItems.indexOf(activeMenu);
-
-    // Todo: move this function up/reuse/to context?
-
-    // if direction is forward
-    if (direction === "Next") {
-      // set to index of next item
-      // if the next index is equal to the array length
-      // set to first index
-      if (indexOfCurrentItem + 1 === navigationItems.length) {
-        setActiveMenu(navigationItems[0]);
-        return;
-      }
-      setActiveMenu(navigationItems[indexOfCurrentItem + 1]);
-      return;
-    }
-    // set to index of previous item
-    // if the previous index is less than zero (first index)
-    // set to the biggest index
-    if (indexOfCurrentItem - 1 < 0) {
-      setActiveMenu(navigationItems[navigationItems.length - 1]);
-      return;
-    }
-    setActiveMenu(navigationItems[indexOfCurrentItem - 1]);
-  };
 
   return (
     <Container>
@@ -160,16 +126,15 @@ export function Contact() {
             href="#Prev"
             onClick={(e) => {
               e.preventDefault();
-              changeMenu("Prev");
             }}
           >
-            <LeftCaret />
+            <Carets direction={"left"} />
           </ItemAnchor>
         </ContainerBracketLeft>
       </Item>
       <Item>
         <VerticalContainer>
-          <LinkHeader>Get in touch via</LinkHeader>
+          <LinkHeader>Contact</LinkHeader>
 
           <CopyToClipboard
             text="hello@muguku.co.ke"
@@ -222,10 +187,9 @@ export function Contact() {
             href="#Next"
             onClick={(e) => {
               e.preventDefault();
-              changeMenu("Next");
             }}
           >
-            <RightCaret />
+            <Carets direction={"right"} />
           </ItemAnchor>
           <Item>
             <Brackets>{")"}</Brackets>

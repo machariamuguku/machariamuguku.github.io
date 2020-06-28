@@ -1,14 +1,9 @@
-import React, { useContext } from "react";
+import React from "react";
 import styled from "styled-components";
-
-// context provider
-import { MenuContext } from "../menuContext";
 
 // components
 import SEO from "../seo";
-import { LeftCaret, RightCaret } from "./carets";
-
-const navigationItems = ["Home", "About", "Contact"];
+import { Carets } from "./carets";
 
 // Todo: remove default exports everywhere
 const Container = styled.div`
@@ -30,7 +25,7 @@ const ContainerBracketLeft = styled.div`
     color: white;
   }
   @media (max-width: 48rem) {
-    margin-right: 0.2rem;
+    margin-right: 0.5rem;
   }
 `;
 const VerticalContainer = styled.div`
@@ -38,16 +33,23 @@ const VerticalContainer = styled.div`
   flex-direction: column;
   text-align: center;
   width: 18rem;
-  margin-top: 1rem;
   p {
     font-size: 13pt;
     font-weight: 400;
+    margin-top: 0;
     @media (max-width: 48rem) {
       font-size: 11pt;
     }
   }
   @media (max-width: 48rem) {
     width: 15rem;
+  }
+`;
+const LinkHeader = styled.span`
+  font-size: 20pt;
+  font-weight: bold;
+  @media (max-width: 48rem) {
+    font-size: 14pt;
   }
 `;
 const Item = styled.div`
@@ -60,7 +62,7 @@ const ItemBracketRight = styled.div`
   flex: 0 0 auto;
   margin-left: 1rem;
   @media (max-width: 48rem) {
-    margin-left: 0.2rem;
+    margin-left: 0.5rem;
   }
 `;
 const Brackets = styled.span`
@@ -71,35 +73,6 @@ const Brackets = styled.span`
 `;
 
 export function About() {
-  const { activeMenu, setActiveMenu } = useContext(MenuContext);
-
-  const changeMenu = (direction) => {
-    const indexOfCurrentItem = navigationItems.indexOf(activeMenu);
-
-    // Todo: move this function up/reuse/to context?
-
-    // if direction is forward
-    if (direction === "Next") {
-      // set to index of next item
-      // if the next index is equal to the array length
-      // set to first index
-      if (indexOfCurrentItem + 1 === navigationItems.length) {
-        setActiveMenu(navigationItems[0]);
-        return;
-      }
-      setActiveMenu(navigationItems[indexOfCurrentItem + 1]);
-      return;
-    }
-    // set to index of previous item
-    // if the previous index is less than zero (first index)
-    // set to the biggest index
-    if (indexOfCurrentItem - 1 < 0) {
-      setActiveMenu(navigationItems[navigationItems.length - 1]);
-      return;
-    }
-    setActiveMenu(navigationItems[indexOfCurrentItem - 1]);
-  };
-
   return (
     <Container>
       <SEO title="About" />
@@ -115,16 +88,16 @@ export function About() {
             href="#Prev"
             onClick={(e) => {
               e.preventDefault();
-              changeMenu("Prev");
             }}
           >
-            <LeftCaret />
+            <Carets direction={"left"} />
           </ItemAnchorTag>
         </ContainerBracketLeft>
       </Item>
 
       <Item>
         <VerticalContainer>
+          <LinkHeader>About</LinkHeader>
           <p>
             I'm a fullstack software engineer from Nairobi, Kenya. I design,
             code, and tinker with things. I speak React, Node.js, and Golang. I
@@ -140,10 +113,9 @@ export function About() {
             href="#Next"
             onClick={(e) => {
               e.preventDefault();
-              changeMenu("Next");
             }}
           >
-            <RightCaret />
+            <Carets direction={"right"} />
           </ItemAnchorTag>
           <Item>
             <Brackets>{"]"}</Brackets>
