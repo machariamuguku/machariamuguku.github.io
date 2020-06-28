@@ -23,7 +23,7 @@ const VerticalContainer = styled.div`
   }
 `;
 const LinkHeader = styled.span`
-  font-size: 20pt;
+  font-size: 15pt;
   font-weight: bold;
   @media (max-width: 48rem) {
     font-size: 14pt;
