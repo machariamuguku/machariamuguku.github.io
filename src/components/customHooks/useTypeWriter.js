@@ -1,7 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export function useTypeWriter(Introductions) {
   const [introduction, setIntroduction] = useState("");
+  // ref to keep track of mount state
+  const mountedRef = useRef(true);
 
   useEffect(() => {
     // sets a delay
@@ -13,6 +15,9 @@ export function useTypeWriter(Introductions) {
     async function type(sentence) {
       // iterate the sentence
       for (const currentLetter of sentence) {
+        // stop execution if component is unmounted
+        if (!mountedRef.current) return null;
+
         // add the letters cumulatively to state
         setIntroduction((prevState) => prevState + currentLetter);
         // wait a few seconds before proceeding to the next letter
@@ -23,6 +28,9 @@ export function useTypeWriter(Introductions) {
     // pop letters one by one from state
     async function unType(sentence) {
       for (let i = 0; i < sentence.length; i++) {
+        // stop execution if component is unmounted
+        if (!mountedRef.current) return null;
+
         // remove last letter from sentence in state
         setIntroduction((prevState) => prevState.slice(0, -1));
         // wait a few seconds before proceeding to the next letter
@@ -50,7 +58,7 @@ export function useTypeWriter(Introductions) {
 
     // cleanup
     return () => {
-      setIntroduction("");
+      mountedRef.current = false;
     };
   }, [Introductions]);
   return introduction;
