@@ -2,7 +2,7 @@ import React from "react";
 
 // context provider
 import { MenuContextProvider } from "../components/menuContext";
-import SEO from "../components/seo";
+import { SEO } from "../components/seo";
 
 const NotFoundPage = () => (
   <MenuContextProvider>

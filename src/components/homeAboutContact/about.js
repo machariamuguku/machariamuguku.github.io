@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 // components
-import SEO from "../seo";
+import { SEO } from "../seo";
 import { Carets } from "./carets";
 
 // Todo: remove default exports everywhere

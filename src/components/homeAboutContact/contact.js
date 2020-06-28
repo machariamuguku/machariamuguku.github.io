@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 // components
-import SEO from "../seo";
+import { SEO } from "../seo";
 import { Carets } from "./carets";
 
 // react font awesome
