@@ -6,7 +6,7 @@ import styled from "styled-components";
 import { MenuContext } from "../menuContext";
 
 // components
-import Home from "./home";
+import { Home } from "./home";
 import { About } from "./about";
 import { Contact } from "./contact";
 

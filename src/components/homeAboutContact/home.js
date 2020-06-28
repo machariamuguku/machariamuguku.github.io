@@ -5,7 +5,7 @@ import styled, { keyframes } from "styled-components";
 import { useTypeWriter } from "../customHooks/useTypeWriter";
 
 // components
-import {SEO} from "../seo";
+import { SEO } from "../seo";
 import { Carets } from "./carets";
 
 const introductions = [
@@ -140,7 +140,7 @@ const Summary = styled.div`
   }
 `;
 
-export default function Home() {
+export function Home() {
   const introduction = useTypeWriter(introductions);
 
   return (
