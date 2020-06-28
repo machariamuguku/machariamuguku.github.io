@@ -102,7 +102,7 @@ const BackUpImg = styled.img`
   }
 `;
 
-export const LandingPage = () => {
+export const HomeLayout = () => {
   // context consumer
   const { activeMenuAndComponent, dispatchActiveMenuAndComponent } = useContext(
     MenuContext

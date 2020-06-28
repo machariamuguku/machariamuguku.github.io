@@ -7,7 +7,7 @@ import { MenuContextProvider } from "../components/menuContext";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 
 // components
-import { LandingPage } from "../components/landingPage";
+import { HomeLayout } from "../components/homeLayout";
 
 const GlobalStyle = createGlobalStyle`
 html {
@@ -30,7 +30,7 @@ const IndexPage = () => (
   <MenuContextProvider>
     <ThemeProvider theme={{ fontFamily: "sans-serif" }}>
       <GlobalStyle whiteColor />
-      <LandingPage />
+      <HomeLayout />
     </ThemeProvider>
   </MenuContextProvider>
 );
