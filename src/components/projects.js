@@ -63,7 +63,6 @@ const NodeColor = styled.span`
   color: ${(props) => props.color || "white"};
 `;
 
-// todo: trim text if overflows
 export function Projects() {
   const {
     github: {
