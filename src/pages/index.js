@@ -26,7 +26,7 @@ html {
   }
 `;
 
-export const IndexPage = () => (
+const IndexPage = () => (
   <MenuContextProvider>
     <ThemeProvider theme={{ fontFamily: "sans-serif" }}>
       <GlobalStyle whiteColor />
@@ -34,3 +34,5 @@ export const IndexPage = () => (
     </ThemeProvider>
   </MenuContextProvider>
 );
+
+export default IndexPage;
