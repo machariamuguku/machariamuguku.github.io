@@ -205,11 +205,15 @@ export const HomeLayout = () => {
   };
 
   // track if scrolling downwards
-  const isScrollValid = useOnScroll({
-    minimumScroll: window.scrollY + projectsRefTop - 200,
-    throttleTime: 250,
-    delayTime: 250
-  });
+  // check if windows is undefined to avoid build-time error
+  const isScrollValid =
+    typeof window !== `undefined`
+      ? useOnScroll({
+          minimumScroll: window.scrollY + projectsRefTop - 200,
+          throttleTime: 250,
+          delayTime: 250
+        })
+      : false;
 
   const transitions = useTransition(isScrollValid, null, {
     from: { position: "absolute", opacity: 0 },
