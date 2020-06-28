@@ -6,11 +6,12 @@ import styled from "styled-components";
 import { MenuContext } from "../menuContext";
 
 // components
+import { Unified } from "./unified";
 import { Home } from "./home";
 import { About } from "./about";
 import { Contact } from "./contact";
 
-const Container = styled.div`
+const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
@@ -43,18 +44,24 @@ export function HomeAboutContact() {
   });
 
   return (
-    <Container>
+    <MainContainer>
       {transition.map(({ item, key, props }) => (
         <animated.div key={key} style={props}>
           {item === "Home" ? (
-            <Home />
+            <Unified bracketLeft="{" bracketRight="}">
+              <Home />
+            </Unified>
           ) : item === "About" ? (
-            <About />
+            <Unified bracketLeft="[" bracketRight="]">
+              <About />
+            </Unified>
           ) : (
-            <Contact />
+            <Unified bracketLeft="(" bracketRight=")">
+              <Contact />
+            </Unified>
           )}
         </animated.div>
       ))}
-    </Container>
+    </MainContainer>
   );
 }
