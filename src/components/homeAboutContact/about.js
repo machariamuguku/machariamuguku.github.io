@@ -5,7 +5,6 @@ import styled from "styled-components";
 import { SEO } from "../seo";
 import { Carets } from "./carets";
 
-// Todo: remove default exports everywhere
 const Container = styled.div`
   display: flex;
   flex-wrap: nowrap;
