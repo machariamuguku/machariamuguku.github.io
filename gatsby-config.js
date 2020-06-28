@@ -6,8 +6,8 @@ module.exports = {
   siteMetadata: {
     title: `Muguku`,
     owner: `Macharia Muguku`,
-    description: `Macharia Muguku's Portfolio Website.`,
-    author: `@charmgk`
+    description: `A Macharia Muguku software engineer portfolio website`,
+    author: `Macharia Muguku <hello@muguku.co.ke>`
   },
   plugins: [
     `gatsby-transformer-sharp`,
@@ -44,7 +44,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `macharia-muguku-portfolio`,
+        name: `macharia_muguku_react_gatsby_portfolio`,
         short_name: `portfolio`,
         start_url: `/`,
         background_color: `#000000`,
