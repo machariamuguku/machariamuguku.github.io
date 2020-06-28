@@ -39,11 +39,11 @@ const Item = styled.a`
   color: white;
   text-decoration: none;
   img {
-    height: 150px;
+    height: 9.375rem;
   }
   @media (max-width: 48rem) {
-    width: 94vw;
-    margin-left: 0;
+    width: 90vw;
+    margin: 0 0 1.5rem 0;
     margin-right: 0;
   }
 `;
@@ -60,7 +60,7 @@ const BottomContainer = styled.div`
   }
 `;
 
-export function Articles() {
+export function Blog() {
   const data = useStaticQuery(
     graphql`
       {
@@ -90,7 +90,7 @@ export function Articles() {
   return (
     <MainContainer>
       <Container>
-        <Header>Latest Articles</Header>
+        <Header>My Blog</Header>
       </Container>
 
       <Container>
@@ -107,7 +107,7 @@ export function Articles() {
                   ? `https://miro.medium.com/max/600/${edge.node.virtuals.previewImage.imageId}`
                   : "https://miro.medium.com/max/600/1*gXNxIUk4dxql1L7tkjtXYg.png"
               }
-              alt="medium article previewImage"
+              alt="medium blog previewImage"
             />
             <h5>{edge.node.title}</h5>
             <BottomContainer>
