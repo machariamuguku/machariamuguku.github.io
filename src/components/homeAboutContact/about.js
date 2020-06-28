@@ -1,9 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 
-// components
-import { SEO } from "../seo";
-
 const VerticalContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -32,7 +29,6 @@ const Para = styled.p`
 export function About() {
   return (
     <VerticalContainer>
-      <SEO title="About" />
       <LinkHeader>About</LinkHeader>
       <Para>
         I'm a fullstack software engineer from Nairobi, Kenya. I design, code,

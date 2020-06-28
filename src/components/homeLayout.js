@@ -12,6 +12,8 @@ import { MenuContext } from "./menuContext";
 import { useOnScroll } from "./customHooks/useOnScroll";
 import { useMediaQuery } from "./customHooks/useMediaQuery";
 
+// components
+import { SEO } from "./seo";
 import { ArtDirectedImage } from "./ArtDirectedImage";
 import { Header } from "./header";
 import { HomeAboutContact } from "./homeAboutContact";
@@ -234,6 +236,7 @@ export const HomeLayout = () => {
 
   return (
     <VerticalContainer>
+      <SEO title={activeMenuAndComponent.Menu} />
       <Header
         siteTitle={siteMetadata.title}
         scrollToTop={scrollToTop}

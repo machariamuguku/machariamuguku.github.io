@@ -6,8 +6,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
 
-// components
-import { SEO } from "../seo";
 // copy to clipboard
 import { CopyToClipboard } from "react-copy-to-clipboard";
 // react tooltip
@@ -72,7 +70,6 @@ export function Contact() {
   const [copiedToClipBoard, setCopiedToClipBoard] = useState(false);
   return (
     <VerticalContainer>
-      <SEO title="Contact" />
       <LinkHeader>Contact</LinkHeader>
       <CopyToClipboard
         text="hello@muguku.co.ke"

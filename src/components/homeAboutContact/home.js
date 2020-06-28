@@ -4,9 +4,6 @@ import styled, { keyframes } from "styled-components";
 // custom typeWriter hook
 import { useTypeWriter } from "../customHooks/useTypeWriter";
 
-// components
-import { SEO } from "../seo";
-
 const introductions = [
   "Macharia Muguku",
   "A Software Engineer",
@@ -115,7 +112,6 @@ export function Home() {
   return (
     <>
       <VerticalContainer>
-        <SEO title="Home" />
         <LinkHeader>Hello!</LinkHeader>
         <IntroContainer>
           <Introduction>I'm</Introduction>
