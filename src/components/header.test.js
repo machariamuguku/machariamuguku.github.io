@@ -10,7 +10,7 @@ describe("<Header />", () => {
     expect(getByText(/Home/i)).toBeInTheDocument();
     expect(getByText(/About/i)).toBeInTheDocument();
     expect(getByText(/Projects/i)).toBeInTheDocument();
-    expect(getByText(/Articles/i)).toBeInTheDocument();
+    expect(getByText(/Blog/i)).toBeInTheDocument();
     expect(getByText(/Contact/i)).toBeInTheDocument();
   });
 });

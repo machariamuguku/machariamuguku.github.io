@@ -40,12 +40,12 @@ describe("<Index />", () => {
 
   it("renders <Projects />", () => {
     const { getByText } = render(<Index />);
-    expect(getByText(/Popular Projects/i)).toBeInTheDocument();
+    expect(getByText(/My GitHub Projects/i)).toBeInTheDocument();
   });
 
-  it("renders <Articles />", () => {
+  it("renders <Blog />", () => {
     const { getByText } = render(<Index />);
-    expect(getByText(/Popular Articles/i)).toBeInTheDocument();
+    expect(getByText(/My Blog/i)).toBeInTheDocument();
   });
 
   it("renders <Footer />", () => {
