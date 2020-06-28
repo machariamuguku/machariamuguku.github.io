@@ -10,6 +10,9 @@ const MainContainer = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   background-color: #0f1113;
+  @media (max-width: 48rem) {
+    width: 100vw;
+  }
 `;
 const Container = styled.div`
   display: flex;
@@ -30,16 +33,16 @@ const Item = styled.a`
   flex-direction: column;
   flex-wrap: nowrap;
   margin: 1rem;
-  padding: 1rem;
-  width: 25vw;
+  width: 26vw;
   height: 10rem;
+  padding: 1rem;
   background-color: #000;
   color: white;
   text-decoration: none;
   @media (max-width: 48rem) {
-    width: 87vw;
-    margin-left: 0;
-    margin-right: 0;
+    width: 90vw;
+    margin: 0 0 1.5rem 0;
+    padding: 1rem 0.7rem 1rem 0.7rem;
   }
 `;
 const DownContainer = styled.div`
@@ -111,7 +114,7 @@ export function Projects() {
   return (
     <MainContainer>
       <Container>
-        <Header>Popular Projects</Header>
+        <Header>My GitHub Projects</Header>
       </Container>
 
       <Container>
