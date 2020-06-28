@@ -42,11 +42,11 @@ export const ArtDirectedImage = ({ children, BgSize }) => {
     small.childImageSharp.fluid,
     {
       ...medium.childImageSharp.fluid,
-      media: `(min-width: 491px)`
+      media: `(min-width: 30.688rem)`
     },
     {
       ...desktop.childImageSharp.fluid,
-      media: `(min-width: 1401px)`
+      media: `(min-width: 87.563rem)`
     }
   ];
 
