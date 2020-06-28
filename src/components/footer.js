@@ -7,15 +7,15 @@ const FooterStl = styled.footer`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  height: 70px;
+  height: 4.375rem;
   width: 100%;
   background-color: #1a1a1a;
   color: white;
   font-size: 11pt;
   @media (max-width: 48rem) {
     flex-direction: column;
-    font-size: 9pt;
-    height: 40px;
+    font-size: 10.5pt;
+    height: 2.5rem;
     padding-top: 1rem;
     padding-bottom: 1rem;
   }
@@ -26,12 +26,12 @@ const PadOnMobile = styled.span`
   }
 `;
 const LinkColor = styled.a`
-  color: white;
+  color: whitesmoke;
   img {
     height: inherit;
-    width: 70px;
+    width: 4.375rem;
     @media (max-width: 48rem) {
-      width: 65px;
+      width: 4.063rem;
     }
   }
 `;
@@ -39,7 +39,7 @@ const MarginBottom = styled.div`
   @media (max-width: 48rem) {
     border-bottom-color: #808b97;
     border-bottom-style: solid;
-    border-bottom-width: 1px;
+    border-bottom-width: 0.063rem;
     padding-bottom: 0.3rem;
   }
 `;
@@ -54,7 +54,7 @@ export function Footer({ siteOwner }) {
         <span>All rights reserved.&nbsp;</span>
       </MarginBottom>
       <PadOnMobile>
-        Handcrafted by Me. Built with &nbsp;
+        Handcrafted by Me. Made with &nbsp;
         <LinkColor
           href="https://www.gatsbyjs.org"
           target="_blank"
