@@ -177,11 +177,11 @@ Project Link: [https://github.com/machariamuguku/macharia_muguku_react_gatsby_po
 
 ## Acknowledgements
 
-- [Font Awesome](https://fontawesome.com)
-- [Best-README-Template](https://github.com/othneildrew/Best-README-Template)
-- [Projects Inspiration](https://portfolio.smakosh.com/)
-- [Projects Inspiration](https://octoprofile.now.sh/user?id=machariamuguku)
-- [Copy To Clipboard](http://www.adhamdannaway.com/)
+- [Font Awesome - Icons](https://fontawesome.com)
+- [Best-README-Template - README Template](https://github.com/othneildrew/Best-README-Template)
+- [Smakosh - Github Section Inspiration](https://portfolio.smakosh.com/)
+- [Octoprofile - Github Section Inspiration](https://octoprofile.now.sh/user?id=machariamuguku)
+- [Adham Dannaway - Copy To Clipboard Inspiration](http://www.adhamdannaway.com/)
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
