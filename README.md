@@ -8,7 +8,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="http://muguku.co.ke/">
+  <a href="http://www.muguku.co.ke/">
     <img src="src/images/512x512.png" alt="Logo" width="80" height="80">
   </a>
 
@@ -49,7 +49,7 @@
 
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](http://muguku.co.ke/)
+[![Product Name Screen Shot][product-screenshot]](http://www.muguku.co.ke/)
 
 I felt my previous basic `HTML` and `CSS` portfolio inherently fell short in some aspects. This is a redress for that.
 
