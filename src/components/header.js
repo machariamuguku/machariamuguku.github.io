@@ -43,8 +43,7 @@ export const Header = ({
   const transitions = useTransition(toggleMobileNav, null, {
     from: { transform: "translate3d(0,-60vh,0)" },
     enter: { transform: "translate3d(0,0,0)" },
-    leave: { transform: "translate3d(0,-60vh,0)" },
-    delay: 10
+    leave: { transform: "translate3d(0,-60vh,0)" }
   });
 
   // switch active tab and toggle menu off
