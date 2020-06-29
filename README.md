@@ -56,7 +56,7 @@ I felt my previous basic `HTML` and `CSS` portfolio inherently fell short in som
 What I was aiming for:
 
 - **Completeness**. Unlike the previous one, I wanted this portfolio version to look and feel more like the final version from the very start.
-- **Simplicity**. I wanted everything important in here, on the same page, accessible on a single page load.
+- **Simplicity**. I wanted everything important in here, on the same page, accessible on a single page load. I also wanted to tree shake my own css and move from proprietary modules like bulma
 - **Minimalism**. As is my design philosophy
 
   > Less is more .
