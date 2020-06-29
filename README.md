@@ -12,7 +12,7 @@
     <img src="src/images/512x512.png" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">Macharia Muguku Software Engineering Portfolio V2</h3>
+  <h3 align="center">Macharia Muguku's Software Engineering Portfolio V2</h3>
 
   <p align="center">
     React Gatsby Engineering Portfolio
@@ -34,7 +34,7 @@
 
 - [About the Project](#about-the-project)
   - [Built With](#built-with)
-  - [Pronounced Technologies](#Pronounced-Technologies)
+  - [Other Technologies](#Other-Technologies)
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
@@ -51,13 +51,13 @@
 
 [![Product Name Screen Shot][product-screenshot]](http://muguku.co.ke/)
 
-I felt my previous basic HTML and CSS portfolio inherently fell short in some aspects. This is a redress for that.
+I felt my previous basic `HTML` and `CSS` portfolio inherently fell short in some aspects. This is a redress for that.
 
 What I was aiming for:
 
-- Completeness. Unlike the previous one, I wanted this version to look and feel more like the final version from the very start.
-- Simplicity. I wanted everything but only those important to the site to be in here, on the same page, and accessible on a single page load.
-- Minimalism. I hearkened to my design philosophy
+- **Completeness**. Unlike the previous one, I wanted this portfolio version to look and feel more like the final version from the very start.
+- **Simplicity**. I wanted everything important in here, on the same page, accessible on a single page load.
+- **Minimalism**. As is my design philosophy
 
   > less is more .
 
@@ -71,14 +71,13 @@ Of course, it's impossible to hit perfection on the first try, so I'll be making
 - [React Spring](http://react-spring.io/)
 - [Styled Components](https://styled-components.com/)
 
-<!-- ACKNOWLEDGEMENTS -->
+<!-- TECHNOLOGIES -->
 
-### Pronounced Technologies
+### Technologies
 
-- React Spring Animation
-- React Context
+- React Context API with a Global Reducer
 - Custom Hooks
-- Copy to clipboard
+- Copy to Clipboard
 - Medium and Github API
 - Integration and Unit Testing with RTL
 
@@ -90,7 +89,7 @@ To get a local copy up and running follow these simple steps.
 
 ### Prerequisites
 
-- nodejs
+- `nodejs` and `yarn` package manager
 
 ```sh
 sudo apt install nodejs
@@ -107,12 +106,12 @@ git clone https://github.com/machariamuguku/macharia_muguku_react_gatsby_portfol
 2. Install packages
 
 ```sh
-yarn
+yarn add
 ```
 
-3. Get your GitHub API key and fill it in .env.development and .env.production
+3. Get your GitHub API key and fill it in `.env.development` and `.env.production`
 
-4. Fill in your medium username and other personal info in gatsby-config.js
+4. Fill in your [medium.com](https://medium.com/) username and other personal info in `gatsby-config.js`
 
 <!-- USAGE EXAMPLES -->
 
