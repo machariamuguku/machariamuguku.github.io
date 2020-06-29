@@ -59,7 +59,7 @@ What I was aiming for:
 - **Simplicity**. I wanted everything important in here, on the same page, accessible on a single page load.
 - **Minimalism**. As is my design philosophy
 
-  > less is more .
+  > Less is more .
 
 Of course, it's impossible to hit perfection on the first try, so I'll be making iterations in the near future. Feel free to suggest changes by forking this repo and creating a pull request or opening an issue.
 
