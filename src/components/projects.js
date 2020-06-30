@@ -1,6 +1,6 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
-import Octicon, { Repo, Star, RepoForked } from "@primer/octicons-react";
+import { RepoIcon, StarIcon, RepoForkedIcon } from "@primer/octicons-react";
 import styled from "styled-components";
 
 const MainContainer = styled.div`
@@ -125,7 +125,7 @@ export function Projects() {
             key={edge.node.id}
           >
             <h5>
-              <Octicon icon={Repo} />
+              <RepoIcon />
               &nbsp;
               {edge.node.name}
             </h5>
@@ -142,12 +142,12 @@ export function Projects() {
                 ))}
               </DownContainerItem>
               <DownContainerItem>
-                <Octicon icon={Star} />
+                <StarIcon />
                 {edge.node.stargazers.totalCount}
                 &nbsp;
               </DownContainerItem>
               <DownContainerItem>
-                <Octicon icon={RepoForked} />
+                <RepoForkedIcon />
                 {edge.node.forkCount}
                 &nbsp;
               </DownContainerItem>
