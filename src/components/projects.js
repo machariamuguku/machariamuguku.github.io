@@ -125,7 +125,7 @@ export function Projects() {
             key={edge.node.id}
           >
             <h5>
-              <RepoIcon />
+              <RepoIcon size={16} />
               &nbsp;
               {edge.node.name}
             </h5>
@@ -142,12 +142,12 @@ export function Projects() {
                 ))}
               </DownContainerItem>
               <DownContainerItem>
-                <StarIcon />
+                <StarIcon size={16} />
                 {edge.node.stargazers.totalCount}
                 &nbsp;
               </DownContainerItem>
               <DownContainerItem>
-                <RepoForkedIcon />
+                <RepoForkedIcon size={16} />
                 {edge.node.forkCount}
                 &nbsp;
               </DownContainerItem>
