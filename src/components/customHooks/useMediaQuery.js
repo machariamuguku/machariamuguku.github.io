@@ -1,11 +1,10 @@
 import { useState, useEffect } from "react";
 
 export const useMediaQuery = (mediaQuery) => {
-  // check if windows is undefined to avoid build-time error
-  const [matchesMediaQuery, setMatchesMediaQuery] =
-    typeof window !== `undefined`
-      ? useState(!!window.matchMedia(mediaQuery).matches)
-      : [];
+  // check if windows object is undefined to avoid build-time error (not available to nodejs runtime)
+  const [matchesMediaQuery, setMatchesMediaQuery] = useState(() =>
+    typeof window !== `undefined` ? !!window.matchMedia(mediaQuery).matches : []
+  );
 
   useEffect(() => {
     const mediaQueryList = window.matchMedia(mediaQuery);
@@ -18,7 +17,7 @@ export const useMediaQuery = (mediaQuery) => {
     return () => {
       mediaQueryList.removeListener(documentChangeHandler);
     };
-  }, [mediaQuery]);
+  }, [mediaQuery, setMatchesMediaQuery]);
 
   return matchesMediaQuery;
 };
