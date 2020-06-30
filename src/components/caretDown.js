@@ -37,7 +37,6 @@ const AnimateCaretDown = styled.div`
   outline: none;
 `;
 const GoingDown = styled(FontAwesomeIcon)`
-  font-size: 1.2rem;
   transform: scaleX(1.2);
   &:last-child {
     margin-top: -0.6rem;
@@ -53,8 +52,8 @@ export function CaretDown({ reference, scrollToPosition = () => {} }) {
         role="button"
         tabIndex="0"
       >
-        <GoingDown icon={faChevronDown} size="sm" />
-        <GoingDown icon={faChevronDown} size="sm" />
+        <GoingDown icon={faChevronDown} size="lg" />
+        <GoingDown icon={faChevronDown} size="lg" />
       </AnimateCaretDown>
     </CaretDownStl>
   );
