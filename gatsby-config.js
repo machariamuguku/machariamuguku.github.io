@@ -40,6 +40,14 @@ module.exports = {
         path: `${__dirname}/src/images`
       }
     },
+    // auto generate a '.htaccess' file for Apache hosting
+    {
+      resolve: "gatsby-plugin-htaccess",
+      options: {
+        // force the site name to start with 'www'
+        www: true
+      }
+    },
     // PWA manifest
     {
       resolve: `gatsby-plugin-manifest`,
