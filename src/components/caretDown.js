@@ -38,12 +38,9 @@ const AnimateCaretDown = styled.div`
 `;
 const GoingDown = styled(FontAwesomeIcon)`
   font-size: 1.2rem;
-  transform: scaleX(1.5);
+  transform: scaleX(1.2);
   &:last-child {
-    margin-top: -0.3rem;
-  }
-  @media (max-width: 48rem) {
-    font-size: 1.1rem;
+    margin-top: -0.6rem;
   }
 `;
 
