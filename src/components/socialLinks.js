@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from "react";
 // react font awesome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faLinkedinIn,
-  faMedium,
-  faGithub
-} from "@fortawesome/free-brands-svg-icons";
-import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
+import { faLinkedinIn, faMedium } from "@fortawesome/free-brands-svg-icons";
+// primer github icons
+import { MarkGithubIcon, MailIcon } from "@primer/octicons-react";
 
 // react tooltip
 import ReactTooltip from "react-tooltip";
@@ -53,10 +50,6 @@ const ItemClipboard = styled.div`
 const LinkColor = styled.a`
   color: white;
 `;
-const IconSize = styled(FontAwesomeIcon)`
-  width: 1.063rem;
-  height: 1.063rem;
-`;
 const ReactToolTip = styled(ReactTooltip)`
   font-size: 10pt;
   max-width: 12rem;
@@ -92,7 +85,7 @@ export function SocialLinks() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <IconSize icon={faGithub} />
+          <MarkGithubIcon size={16} />
         </LinkColor>
       </Item>
       <Item>
@@ -101,7 +94,7 @@ export function SocialLinks() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <IconSize icon={faLinkedinIn} />
+          <FontAwesomeIcon icon={faLinkedinIn} size="1x" />
         </LinkColor>
       </Item>
       <Item>
@@ -110,7 +103,7 @@ export function SocialLinks() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <IconSize icon={faMedium} />
+          <FontAwesomeIcon icon={faMedium} size="1x" />
         </LinkColor>
       </Item>
       <ItemClipboard
@@ -131,7 +124,7 @@ export function SocialLinks() {
           onCopy={(result) => setCopiedToClipBoard(result)}
         >
           <Item>
-            <IconSize icon={faEnvelope} />
+            <MailIcon size={16} />
           </Item>
         </CopyToClipboard>
       </ItemClipboard>

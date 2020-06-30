@@ -4,7 +4,8 @@ import styled from "styled-components";
 // react font awesome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
-import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
+// primer github icons
+import { MailIcon } from "@primer/octicons-react";
 
 // copy to clipboard
 import { CopyToClipboard } from "react-copy-to-clipboard";
@@ -37,10 +38,6 @@ const LinkContainerNoLinkOutlinePointer = styled.div`
 `;
 const Item = styled.div`
   flex: 0 0 auto;
-`;
-const IconSize = styled(FontAwesomeIcon)`
-  width: 1.063rem;
-  height: 1.063rem;
 `;
 const ItemSomeMargin = styled.div`
   flex: 0 0 auto;
@@ -86,7 +83,7 @@ export function Contact() {
           tabIndex="0"
         >
           <Item>
-            <IconSize icon={faEnvelope} />
+            <MailIcon size={16} />
           </Item>
           <ItemSomeMargin>
             <LinkSize>hello@muguku.co.ke</LinkSize>
@@ -100,7 +97,7 @@ export function Contact() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <IconSize icon={faLinkedinIn} />
+            <FontAwesomeIcon icon={faLinkedinIn} size="1x" />
           </a>
         </Item>
         <ItemSomeMargin>

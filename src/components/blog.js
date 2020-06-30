@@ -2,9 +2,8 @@ import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import styled from "styled-components";
 
-// react font awesome
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCalendarTimes, faClock } from "@fortawesome/free-solid-svg-icons";
+// primer github icons
+import { ClockIcon, CalendarIcon } from "@primer/octicons-react";
 
 // styles
 const MainContainer = styled.div`
@@ -112,12 +111,12 @@ export function Blog() {
             <h5>{edge.node.title}</h5>
             <BottomContainer>
               <div>
-                <FontAwesomeIcon icon={faCalendarTimes} size="sm" />
+                <CalendarIcon size={14} />
                 &nbsp;
                 <span>{edge.node.createdAt}</span>
               </div>
               <div>
-                <FontAwesomeIcon icon={faClock} size="sm" />
+                <ClockIcon size={14} />
                 &nbsp;
                 <span>
                   {edge.node.virtuals.readingTime.toLocaleString("en-KE", {

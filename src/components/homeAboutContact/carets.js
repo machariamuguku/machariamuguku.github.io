@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import styled from "styled-components";
 
 // context provider
 import { MenuContext } from "../menuContext";
@@ -7,14 +6,6 @@ import { MenuContext } from "../menuContext";
 // react font awesome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretLeft, faCaretRight } from "@fortawesome/free-solid-svg-icons";
-
-const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
-  font-size: 4rem;
-  cursor: pointer;
-  @media (max-width: 48rem) {
-    font-size: 3rem;
-  }
-`;
 
 const navigationItems = ["Home", "About", "Contact"];
 
@@ -67,9 +58,9 @@ export function Carets({ direction }) {
   };
 
   return (
-    <StyledFontAwesomeIcon
+    <FontAwesomeIcon
       icon={direction === "left" ? faCaretLeft : faCaretRight}
-      size="sm"
+      size="3x"
       onClick={() => {
         if (direction === "left") {
           changeMenu("Prev");

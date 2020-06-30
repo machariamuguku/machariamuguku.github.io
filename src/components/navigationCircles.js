@@ -4,10 +4,8 @@ import styled from "styled-components";
 // context provider
 import { MenuContext } from "./menuContext";
 
-// react font awesome
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircle } from "@fortawesome/free-regular-svg-icons";
-import { faCircle as CircleHighlighted } from "@fortawesome/free-solid-svg-icons";
+// primer github icons
+import { CheckCircleFillIcon, CircleIcon } from "@primer/octicons-react";
 
 const Container = styled.div`
   display: flex;
@@ -55,14 +53,11 @@ export function NavigationCircles() {
             dispatchComponent(item);
           }}
         >
-          <FontAwesomeIcon
-            icon={
-              activeMenuAndComponent.Component === item
-                ? CircleHighlighted
-                : faCircle
-            }
-            size="1x"
-          />
+          {activeMenuAndComponent.Component === item ? (
+            <CheckCircleFillIcon size={16} />
+          ) : (
+            <CircleIcon size={16} />
+          )}
         </Item>
       ))}
     </Container>
