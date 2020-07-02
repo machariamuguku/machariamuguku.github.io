@@ -222,15 +222,23 @@ export const HomeLayout = () => {
   // check if media is mobile
   const isMobileOrTablet = useMediaQuery("(max-width: 48rem)");
 
-  // query for side data
+  // query for site data and optimized SEO image
   const {
-    site: { siteMetadata }
+    site: { siteMetadata },
+    SeoImage
   } = useStaticQuery(graphql`
-    query SiteTitleQuery {
+    query SiteTitleQueryAndSeoImage {
       site {
         siteMetadata {
           title
           owner
+        }
+      }
+      SeoImage: file(relativePath: { eq: "screenshot.png" }) {
+        childImageSharp {
+          fixed(width: 1280, height: 640) {
+            ...GatsbyImageSharpFixed
+          }
         }
       }
     }
@@ -238,7 +246,10 @@ export const HomeLayout = () => {
 
   return (
     <VerticalContainer>
-      <SEO title={activeMenuAndComponent.Menu} />
+      <SEO
+        title={activeMenuAndComponent.Menu}
+        image={SeoImage.childImageSharp.fixed}
+      />
       <Header
         siteTitle={siteMetadata.title}
         scrollToTop={scrollToTop}

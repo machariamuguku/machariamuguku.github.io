@@ -7,7 +7,41 @@ module.exports = {
     title: `Muguku`,
     owner: `Macharia Muguku`,
     description: `A Macharia Muguku software engineer portfolio website`,
-    author: `Macharia Muguku <hello@muguku.co.ke>`
+    author: `Macharia Muguku <hello@muguku.co.ke>`,
+    // don't use trailing slash
+    siteUrl: "http://muguku.co.ke",
+    social: {
+      twitter: "@charmgk"
+    },
+    keywords: [
+      "macharia muguku",
+      "macharia",
+      "muguku",
+      "software engineer",
+      "full-stack developer",
+      "software",
+      "engineer",
+      "developer",
+      "fullstack",
+      "front-end",
+      "frontend",
+      "minimalist",
+      "gatsby",
+      "portfolio",
+      "react",
+      "reactjs",
+      "react.js",
+      "node",
+      "nodejs",
+      "node.js",
+      "golang",
+      "go",
+      "docker",
+      "react",
+      "nginx",
+      "graphql",
+      "mpesa"
+    ]
   },
   plugins: [
     `gatsby-transformer-sharp`,
