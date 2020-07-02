@@ -77,6 +77,7 @@ Of course, it's impossible to hit perfection on the first try, so I'll be making
 
 - React Context API with a Global Reducer
 - Custom Hooks
+- React error boundary
 - Copy to Clipboard
 - Medium and Github API
 - Integration and Unit Testing with RTL
@@ -177,10 +178,11 @@ Project Link: [https://github.com/machariamuguku/macharia_muguku_react_gatsby_po
 
 ## Acknowledgements
 
-- [Font Awesome - Icons](https://fontawesome.com)
 - [Best-README-Template - README Template](https://github.com/othneildrew/Best-README-Template)
 - [Smakosh - Github Section Inspiration](https://portfolio.smakosh.com/)
 - [Octoprofile - Github Section Inspiration](https://octoprofile.now.sh/user?id=machariamuguku)
+- [Font Awesome - Icons](https://fontawesome.com)
+- [Primer Octicons - Icons](https://primer.style/octicons/)
 - [Adham Dannaway - Copy To Clipboard Inspiration](http://www.adhamdannaway.com/)
 
 <!-- MARKDOWN LINKS & IMAGES -->
