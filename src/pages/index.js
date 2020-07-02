@@ -9,7 +9,13 @@ import { createGlobalStyle, ThemeProvider } from "styled-components";
 // components
 import { HomeLayout } from "../components/homeLayout";
 
+// stop font awesome icons flashing larger at load time
+import { config, dom } from "@fortawesome/fontawesome-svg-core";
+config.autoAddCss = false;
+
 const GlobalStyle = createGlobalStyle`
+/* for font awesome above */
+${dom.css()}
 html {
   font-size: 100%;
   font-family: ${(props) => props.theme.fontFamily};
