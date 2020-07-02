@@ -14,6 +14,7 @@ import { useMediaQuery } from "./customHooks/useMediaQuery";
 
 // components
 import { SEO } from "./seo";
+import { ErrorBoundary } from "./errorBoundary";
 import { ArtDirectedImage } from "./ArtDirectedImage";
 import { Header } from "./header";
 import { HomeAboutContact } from "./homeAboutContact";
@@ -250,17 +251,23 @@ export const HomeLayout = () => {
         title={activeMenuAndComponent.Menu}
         image={SeoImage.childImageSharp.fixed}
       />
-      <Header
-        siteTitle={siteMetadata.title}
-        scrollToTop={scrollToTop}
-        scrollToPosition={scrollToPosition}
-        projectsRef={projectsRef}
-        blogRef={blogRef}
-      />
+
+      <ErrorBoundary>
+        <Header
+          siteTitle={siteMetadata.title}
+          scrollToTop={scrollToTop}
+          scrollToPosition={scrollToPosition}
+          projectsRef={projectsRef}
+          blogRef={blogRef}
+        />
+      </ErrorBoundary>
+
       <ArtDirectedImage BgSize={isMobileOrTablet ? "cover" : "contain"}>
         <Container>
           <MainContent>
-            <HomeAboutContact />
+            <ErrorBoundary>
+              <HomeAboutContact />
+            </ErrorBoundary>
             <NavigationCircles />
           </MainContent>
 
@@ -269,20 +276,26 @@ export const HomeLayout = () => {
           </SocialLinksStl>
 
           <CaretDownStl>
-            <CaretDown
-              reference={projectsRef}
-              scrollToPosition={scrollToPosition}
-            />
+            <ErrorBoundary>
+              <CaretDown
+                reference={projectsRef}
+                scrollToPosition={scrollToPosition}
+              />
+            </ErrorBoundary>
           </CaretDownStl>
         </Container>
       </ArtDirectedImage>
 
       <ProjectsStl ref={projectsRef}>
-        <Projects />
+        <ErrorBoundary>
+          <Projects />
+        </ErrorBoundary>
       </ProjectsStl>
 
       <BlogStl ref={blogRef}>
-        <Blog />
+        <ErrorBoundary>
+          <Blog />
+        </ErrorBoundary>
       </BlogStl>
 
       {transitions.map(
