@@ -1,15 +1,34 @@
 import React from "react";
 
+// global theme and theme provider
+import { createGlobalStyle } from "styled-components";
+
 // context provider
 import { MenuContextProvider } from "../components/menuContext";
-import { SEO } from "../components/seo";
+import { FourOhFourLayout } from "../components/fourOhFourLayout";
 
-const NotFoundPage = () => (
+const GlobalStyle = createGlobalStyle`
+html {
+  font-size: 100%;
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  background-color: #000000;
+}
+  body {
+    max-width: 100vw;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+    color: "white";    
+  }
+`;
+
+const FourOhFour = () => (
   <MenuContextProvider>
-    <SEO title="404: Not found" />
-    <h1>NOT FOUND</h1>
-    <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
+    <GlobalStyle />
+    <FourOhFourLayout />
   </MenuContextProvider>
 );
 
-export default NotFoundPage;
+export default FourOhFour;
