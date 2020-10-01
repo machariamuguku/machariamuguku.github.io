@@ -19,7 +19,7 @@ import { ArtDirectedImage } from "./ArtDirectedImage";
 import { Header } from "./header";
 import { HomeAboutContact } from "./homeAboutContact";
 import { NavigationCircles } from "./navigationCircles";
-import { SocialLinks } from "./socialLinks";
+import { SocialLinks } from "./NotSocialLinks";
 import { CaretDown } from "./caretDown";
 import { Projects } from "./projects";
 import { Blog } from "./blog";
