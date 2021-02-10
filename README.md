@@ -25,6 +25,10 @@
     <a href="https://github.com/machariamuguku/macharia_muguku_react_gatsby_portfolio/issues">Report Bug</a>
     ·
     <a href="https://github.com/machariamuguku/macharia_muguku_react_gatsby_portfolio/issues">Request Feature</a>
+
+  <br />
+  <br />
+  <a href="https://www.linkedin.com/posts/machariamuguku_gatsby-react-javascript-activity-6683287740559310848-Bl7C">Linked-in post with Video Preview and Project Motivation</a>
   </p>
 </p>
 
