@@ -99,7 +99,7 @@ export function SocialLinks() {
       </Item>
       <Item>
         <LinkColor
-          href="https://medium.com/@imash"
+          href="https://medium.com/@muguku"
           target="_blank"
           rel="noopener noreferrer"
         >
