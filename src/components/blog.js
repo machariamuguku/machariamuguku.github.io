@@ -95,7 +95,7 @@ export function Blog() {
       <Container>
         {data.allMediumPost.edges.map((edge) => (
           <Item
-            href={`https://medium.com/@muguku/${edge.node.uniqueSlug}?source=muguku.co.ke`}
+            href={`https://muguku.medium.com/${edge.node.uniqueSlug}?source=muguku.co.ke`}
             target="_blank"
             rel="noopener noreferrer"
             key={edge.node.id}
