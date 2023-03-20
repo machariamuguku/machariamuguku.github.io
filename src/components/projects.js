@@ -78,6 +78,7 @@ export function Projects() {
             repositories(
               first: 6
               orderBy: { field: STARGAZERS, direction: DESC }
+              affiliations: OWNER
             ) {
               edges {
                 node {
