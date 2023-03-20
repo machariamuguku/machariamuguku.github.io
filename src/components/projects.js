@@ -78,6 +78,7 @@ export function Projects() {
             repositories(
               first: 6
               orderBy: { field: STARGAZERS, direction: DESC }
+              affiliations: OWNER
             ) {
               edges {
                 node {
@@ -113,7 +114,7 @@ export function Projects() {
   return (
     <MainContainer>
       <Container>
-        <Header>My GitHub Projects</Header>
+        <Header>My Popular GitHub Projects</Header>
       </Container>
 
       <Container>

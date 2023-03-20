@@ -31,9 +31,10 @@ export function About() {
     <VerticalContainer>
       <LinkHeader>About</LinkHeader>
       <Para>
-        I'm a fullstack software engineer from Nairobi, Kenya. I design, code,
-        and tinker with things. I speak React, Node.js, and Golang. I love to
-        write, run and trail.
+        I'm a fullstack software/data engineer from Nairobi, Kenya. I design,
+        code, and tinker with things. I speak Fullstack JavaScript/TypeScript
+        (NodeJs, React), Python, and Go-Lang. I'm highly interested in audio
+        visualization and automation.
       </Para>
     </VerticalContainer>
   );
