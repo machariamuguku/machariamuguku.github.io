@@ -114,7 +114,7 @@ export function Projects() {
   return (
     <MainContainer>
       <Container>
-        <Header>My GitHub Projects</Header>
+        <Header>My Popular GitHub Projects</Header>
       </Container>
 
       <Container>

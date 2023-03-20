@@ -89,7 +89,7 @@ export function Blog() {
   return (
     <MainContainer>
       <Container>
-        <Header>My Blog</Header>
+        <Header>My Latest Blog Posts</Header>
       </Container>
 
       <Container>
