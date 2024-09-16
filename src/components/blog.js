@@ -62,27 +62,27 @@ const BottomContainer = styled.div`
 export function Blog() {
   const data = useStaticQuery(
     graphql`
-      {
-        allMediumPost(
-          limit: 3
-          filter: { type: { eq: "Post" } }
-          sort: { fields: [createdAt], order: DESC }
-        ) {
-          edges {
-            node {
-              id
-              title
-              createdAt(formatString: "DD MMM YYYY")
-              virtuals {
-                previewImage {
-                  imageId
-                }
-                readingTime
+    {
+      allMediumPost(
+        limit: 3
+        filter: { type: { eq: "Post" } }
+        sort: { createdAt: DESC }
+      ) {
+        edges {
+          node {
+            id
+            title
+            createdAt(formatString: "DD MMM YYYY")
+            virtuals {
+              previewImage {
+                imageId
               }
-              uniqueSlug
+              readingTime
             }
+            uniqueSlug
           }
         }
+      }
       }
     `
   );
