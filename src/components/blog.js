@@ -60,8 +60,7 @@ const BottomContainer = styled.div`
 `;
 
 export function Blog() {
-  const data = useStaticQuery(
-    graphql`
+  const data = useStaticQuery(graphql`
     {
       allMediumPost(
         limit: 3
@@ -83,9 +82,8 @@ export function Blog() {
           }
         }
       }
-      }
-    `
-  );
+    }
+  `);
   return (
     <MainContainer>
       <Container>

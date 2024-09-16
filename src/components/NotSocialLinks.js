@@ -6,7 +6,7 @@ import { faLinkedinIn, faMedium } from "@fortawesome/free-brands-svg-icons";
 import { MarkGithubIcon, MailIcon } from "@primer/octicons-react";
 
 // react tooltip
-import ReactTooltip from "react-tooltip";
+import { Tooltip as ReactTooltip } from "react-tooltip";
 // copy to clipboard
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import styled from "styled-components";

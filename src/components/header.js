@@ -12,7 +12,7 @@ import { MenuContext } from "./menuContext";
 import { useMediaQuery } from "./customHooks/useMediaQuery";
 
 // stylesheet
-import styles from "./header.module.css";
+import * as styles from "./header.module.css";
 
 const allTabs = ["Home", "About", "Projects", "Blog", "Contact"];
 const homeTabs = ["Home", "About", "Contact"];
@@ -29,9 +29,8 @@ export const Header = ({
   blogRef
 }) => {
   // context consumer
-  const { activeMenuAndComponent, dispatchActiveMenuAndComponent } = useContext(
-    MenuContext
-  );
+  const { activeMenuAndComponent, dispatchActiveMenuAndComponent } =
+    useContext(MenuContext);
 
   // internal state
   const [toggleMobileNav, setToggleMobileNav] = useState(false);
@@ -40,7 +39,7 @@ export const Header = ({
   const isMobileOrTablet = useMediaQuery("(max-width: 48rem)");
 
   // react-spring animation
-  const transitions = useTransition(toggleMobileNav, null, {
+  const transitions = useTransition(toggleMobileNav, {
     from: { transform: "translate3d(0,-60vh,0)" },
     enter: { transform: "translate3d(0,0,0)" },
     leave: { transform: "translate3d(0,-60vh,0)" }
@@ -96,8 +95,8 @@ export const Header = ({
       {isMobileOrTablet ? (
         <div>
           {/* react-spring animation */}
-          {transitions.map(
-            ({ item, key, props }) =>
+          {transitions(
+            (props, item, key) =>
               item && (
                 <animated.div key={key} style={props} className={styles.item}>
                   {/* page links */}

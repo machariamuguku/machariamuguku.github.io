@@ -30,7 +30,7 @@ const MainContainer = styled.div`
 export function HomeAboutContact() {
   const { activeMenuAndComponent } = useContext(MenuContext);
 
-  const transition = useTransition(activeMenuAndComponent.Component, null, {
+  const transitions = useTransition(activeMenuAndComponent.Component, {
     from: {
       display: "flex",
       textAlign: "center",
@@ -45,7 +45,7 @@ export function HomeAboutContact() {
 
   return (
     <MainContainer>
-      {transition.map(({ item, key, props }) => (
+      {transitions((props, item, key) => (
         <animated.div key={key} style={props}>
           {item === "Home" ? (
             <Unified bracketLeft="{" bracketRight="}">

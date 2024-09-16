@@ -24,9 +24,8 @@ const Item = styled.a`
 `;
 
 export function NavigationCircles() {
-  const { activeMenuAndComponent, dispatchActiveMenuAndComponent } = useContext(
-    MenuContext
-  );
+  const { activeMenuAndComponent, dispatchActiveMenuAndComponent } =
+    useContext(MenuContext);
 
   // dispatcher
   const dispatchComponent = (payload) => {

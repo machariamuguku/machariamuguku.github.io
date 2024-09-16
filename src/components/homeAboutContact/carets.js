@@ -10,9 +10,8 @@ import { faCaretLeft, faCaretRight } from "@fortawesome/free-solid-svg-icons";
 const navigationItems = ["Home", "About", "Contact"];
 
 export function Carets({ direction }) {
-  const { activeMenuAndComponent, dispatchActiveMenuAndComponent } = useContext(
-    MenuContext
-  );
+  const { activeMenuAndComponent, dispatchActiveMenuAndComponent } =
+    useContext(MenuContext);
 
   // dispatcher
   const dispatchComponent = (payload) => {

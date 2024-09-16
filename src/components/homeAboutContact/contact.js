@@ -10,7 +10,7 @@ import { MailIcon } from "@primer/octicons-react";
 // copy to clipboard
 import { CopyToClipboard } from "react-copy-to-clipboard";
 // react tooltip
-import ReactTooltip from "react-tooltip";
+import { Tooltip as ReactTooltip } from "react-tooltip";
 
 const VerticalContainer = styled.div`
   display: flex;
