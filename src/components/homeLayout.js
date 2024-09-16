@@ -13,7 +13,7 @@ import { useOnScroll } from "./customHooks/useOnScroll";
 import { useMediaQuery } from "./customHooks/useMediaQuery";
 
 // components
-import { SEO } from "./seo";
+import { Seo } from "./seo";
 import { ErrorBoundary } from "./errorBoundary";
 import { ArtDirectedImage } from "./ArtDirectedImage";
 import { Header } from "./header";
@@ -107,9 +107,8 @@ const BackUpImg = styled.img`
 
 export const HomeLayout = () => {
   // context consumer
-  const { activeMenuAndComponent, dispatchActiveMenuAndComponent } = useContext(
-    MenuContext
-  );
+  const { activeMenuAndComponent, dispatchActiveMenuAndComponent } =
+    useContext(MenuContext);
 
   // refs for different sections
   const projectsRef = useRef(null);
@@ -214,7 +213,7 @@ export const HomeLayout = () => {
     delayTime: 250
   });
 
-  const transitions = useTransition(isScrollValid, null, {
+  const transitions = useTransition(isScrollValid, {
     from: { position: "absolute", opacity: 0 },
     enter: { opacity: 1 },
     leave: { opacity: 0 }
@@ -223,7 +222,7 @@ export const HomeLayout = () => {
   // check if media is mobile
   const isMobileOrTablet = useMediaQuery("(max-width: 48rem)");
 
-  // query for site data and optimized SEO image
+  // query for site data and optimized Seo image
   const {
     site: { siteMetadata },
     SeoImage
@@ -247,7 +246,7 @@ export const HomeLayout = () => {
 
   return (
     <VerticalContainer>
-      <SEO
+      <Seo
         title={activeMenuAndComponent.Menu}
         image={SeoImage.childImageSharp.fixed}
       />
@@ -298,8 +297,8 @@ export const HomeLayout = () => {
         </ErrorBoundary>
       </BlogStl>
 
-      {transitions.map(
-        ({ item, key, props }) =>
+      {transitions(
+        (props, item, key) =>
           item && (
             <animated.div key={key} style={props}>
               <BackUpImg

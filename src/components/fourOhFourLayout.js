@@ -5,7 +5,7 @@ import styled from "styled-components";
 import { useMediaQuery } from "./customHooks/useMediaQuery";
 
 // components
-import { SEO } from "./seo";
+import { Seo } from "./seo";
 import { ArtDirectedImage } from "./ArtDirectedImage";
 
 const VerticalContainer = styled.div`
@@ -59,7 +59,7 @@ export function FourOhFourLayout() {
 
   return (
     <VerticalContainer>
-      <SEO title="404" />
+      <Seo title="404" />
       <ArtDirectedImage BgSize={isMobileOrTablet ? "cover" : "contain"}>
         <Container>
           <Item>
