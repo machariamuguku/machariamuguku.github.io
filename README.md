@@ -174,7 +174,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ## Contact
 
-Macharia Muguku - [@CharMgk](https://twitter.com/CharMgk) - hello@muguku.co.ke
+Macharia Muguku - hello@muguku.co.ke
 
 Project Link: [https://github.com/machariamuguku/macharia_muguku_react_gatsby_portfolio](https://github.com/machariamuguku/macharia_muguku_react_gatsby_portfolio)
 
